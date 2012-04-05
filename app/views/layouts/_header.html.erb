@@ -1,0 +1,31 @@
+<header>
+  <span class="title-image magnify">
+    <%= link_to image_tag("hygwit.png", :alt => "Prospero"), root_path %>
+  </span>  
+  <span class= "title-text">
+   <%= @title %>
+  </span>
+  
+
+  
+  <nav>
+    <ul>
+      <li><%= link_to image_tag("home.png", :alt => "Home"), root_path %></li>
+      <li><%= link_to image_tag("guidance.png", :alt => "Guidance"), "#" %></li>
+      <li><li><%= link_to "Sign up", "#", :title => "Sign Up - for free", :class => "create-icon round" %></li></li>
+    </ul>
+  </nav>
+</header>
+
+<% content_for :javascript do %>
+
+  <%= javascript_tag do %>
+   
+   $(document).ready(function(){
+   
+   });
+    
+  <% end %>
+<% end %>
+
+

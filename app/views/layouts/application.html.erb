@@ -1,11 +1,61 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Yer Hub | <%= @title %></title>
+    <title><%= title %></title>
     <%= csrf_meta_tag %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->   
+    <%= stylesheet_link_tag 'screen', :media => 'screen' %>
+    <%= stylesheet_link_tag 'print',  :media => 'print' %>
+     <%= javascript_include_tag "application" %>
   </head>
   <body>
-    <%= yield %>
+    <div id="outer">
+      <div id="left-panel">    
+        <div id="container">
+          <%= render 'layouts/header' %>        
+          <div id = "content">         
+            <% flash.each do |key, value| %>
+              <%= content_tag(:div, value, :class => "flash #{key}") %>
+            <% end %>
+              <%= yield %>
+          </div> 
+          
+        </div>
+        <%= render 'layouts/footer' %> 
+        <%= debug(params) if Rails.env.development? %>
+      </div>
+      <div id="right-panel">
+        
+        <div id="about-content">
+          
+        </div>
+        
+        <div id="services-content">
+          
+        </div>
+        
+        <div id="contact-content">
+          
+        </div>
+        
+        <div id="blog-content">
+          This is where the blog is going to go.  Hello, I'd like to tell you a little story about a famous wolf.  
+          He lived deep in the forest with only his old Granny for protection ...
+        </div>
+      </div>
+      
+      <div id="center-panel">
+        <div id="center-content">
+         
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    <%= yield :javascript %>
   </body>
 </html>
 
