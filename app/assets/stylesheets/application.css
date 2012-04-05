@@ -6,6 +6,7 @@
  
  *= require_tree . 
 */
-
-//= require_print
-//= require_screen
+/*
+ *= require print
+ *= require screen
+ */
