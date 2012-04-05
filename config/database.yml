@@ -54,5 +54,5 @@ production:
   database: yer_hub_production
   pool: 5
   #username: yer_hub
-  username :alan
+  username: alan
   password: nelim4sala
