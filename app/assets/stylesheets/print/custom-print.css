@@ -320,7 +320,7 @@ h1 .click_link {
 }
 
 img {
-  /* display: none; */
+  display: none;
   height: 15px;
   width: 15px;
 }
@@ -481,7 +481,7 @@ ul li.smaller_font {
 
 /* used */
 nav {
-  /*display: none; */
+  display: none;
   float: right;
   /* padding: 0 0.2em; */
  /*  white-space: nowrap; */

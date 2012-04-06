@@ -19,7 +19,7 @@ html {
 body {
   font-family: "HelveticaNeue", Arial, Helvetica, sans-serif;
   background: #2E2E2E;
-  font-size: 110%;
+  font-size: 100%;
   height: 100%;
   line-height: 1.3;
 }
@@ -34,33 +34,31 @@ body {
 /* used */
 #left-panel {
   float: left;
-  width: 100%;
+  width: 33%;
   height: 100%;
   position:relative;
 }
 
 /* used */
 #right-panel {
-  display: none;
-  /*float: right;
+  float: right;
   width: 34%;
   position:relative;
   text-align: left;
   font-size: 90%; 
-  height: 100%; */
+  height: 100%;
 }
 
 /*used */
 #center-panel {
-  display: none;
-  /*width: 33%;
+  width: 33%;
   float: left;
   position:relative;
   color: #E6E6E6;
   font-size: 90%;
   line-height: 1.5;
   display: none;
-  height: 100%; */
+  height: 100%;
 }
 
 #pages {
@@ -78,7 +76,7 @@ body {
 /* used */
 #container {
   background: #DDD;
-  margin: 2em;
+  margin: 0.5em;
   -moz-border-radius:    1em;
   -webkit-border-radius: 1em;
   border-radius:         1em;
@@ -164,6 +162,9 @@ h1 a {
   font-weight: bold;
   margin-bottom: 0;
 } 
+h1 .subtext a {
+  font-weight: normal;
+}
 
 /*used */
 h2 {
@@ -197,7 +198,9 @@ h3.title {
 
 /* used */
 h4 {
-  font-size: 95%;
+  font-size: 90%;
+  color: #FFFFEE;
+  text-shadow: 0.05em 0.05em 0.1em black;
 }
 
 /* probably used */
@@ -274,24 +277,21 @@ textarea {
 
 /* used */
 a {
-  color: black;
+  color: #0088CC;
   /* font-weight: bold; */
   text-decoration: none; 
 }
 
 /* used */
-/*
 a:hover {
   color: #069;
   text-decoration: underline;
 }
-*/
 
 /* used */
-/*a:visited {
+a:visited {
   color: #069;
 }
-*/
 
 /* used */
 .click_link {
@@ -319,20 +319,17 @@ h1 .click_link {
   font-size: 80%;
 }
 
+
+
 img {
-  /* display: none; */
   height: 15px;
   width: 15px;
 }
 
 /* used */
-.no-print {
-  display: none
-}
-
-/* used */
 .magnify img {
-  display: none;
+  height: 25px;
+  width: 25px;
 }
 
 
@@ -481,7 +478,6 @@ ul li.smaller_font {
 
 /* used */
 nav {
-  /*display: none; */
   float: right;
   /* padding: 0 0.2em; */
  /*  white-space: nowrap; */
@@ -609,7 +605,7 @@ p {
 
 /* used */
 .grade-letter {
-  float:left; 
+  float:left;
   font-size: 120%; 
   font-weight: bold; 
   padding: 1em 1em 1em 0;
@@ -1101,9 +1097,12 @@ td.warning {
 .numeric {
   text-align: center;
 }
-.profile img.gravatar {
+.profile-pic img {
+  height: 50px;
+  width: 50px;
   border: 1px solid #999;
-  margin-bottom: -15px;
+  margin-right: 5px;
+  float: left;
 }
 
 /* used */
@@ -1238,7 +1237,6 @@ ul.users {
 
 /* used */
 .r-float {
-  display: none;
   font-size: 90%;
   float:right;
 }
