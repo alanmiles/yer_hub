@@ -30,9 +30,8 @@ warning.png: warning-f4d4b844d23db06136150713fa98493a.png
 application.js: application-c10dec4043373ba1ef976af458657785.js
 pages.js: pages-ffb0539c1577faf6d298323414833299.js
 users.js: users-ffb0539c1577faf6d298323414833299.js
+application-print.css: application-print-effa0b2df7c9adf70e8fcc68c01e6835.css
 application.css: application-ed859e0996a0b35e31828822132cde72.css
-print.css: print-6b751e7b2daf8bffbab298b476d6610e.css
-screen.css: screen-ed859e0996a0b35e31828822132cde72.css
 jquery-ui.js: jquery-ui-b232354aa54ee2b320d22541371b2635.js
 jquery-ui.min.js: jquery-ui.min-4258e47b40673a02bedfda178628bfba.js
 jquery.js: jquery-1afd31731ee301d4db70b342cf1a64e9.js
