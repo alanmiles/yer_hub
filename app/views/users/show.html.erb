@@ -1,3 +1,7 @@
-<%= @user.name %>, <%= @user.email %>
-
-
+<h1>
+  <span class="profile-pic"><%= gravatar_image_tag @user.email.downcase %></span>
+  <%= @user.name %>
+  <div class="subtext">
+    <%= @user.email %>
+  </div>
+</h1>

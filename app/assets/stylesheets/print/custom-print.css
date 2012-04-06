@@ -1101,9 +1101,15 @@ td.warning {
 .numeric {
   text-align: center;
 }
-.profile img.gravatar {
+
+/* used */
+.profile-pic img { 
+  display: inline-block;
+  height: 50px;
+  width: 50px;
   border: 1px solid #999;
-  margin-bottom: -15px;
+  margin-right: 5px;
+  float: left;
 }
 
 /* used */
