@@ -1,0 +1,13 @@
+<% if object.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= image_tag("important.png") %> &nbsp; <%= pluralize(object.errors.count, "error") %> 
+        prevented a successful save.</h2>
+    <p>There were problems with the following fields:</p>
+    <ul>
+    <% object.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
