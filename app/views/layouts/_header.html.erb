@@ -10,7 +10,19 @@
     <ul>
       <li><%= link_to image_tag("home.png", :alt => "Home"), root_path %></li>
       <li><%= link_to image_tag("guidance.png", :alt => "Guidance"), "#" %></li>
-      <li><%= link_to "Sign up", signup_path, :title => "Sign Up - for free", :class => "create-icon round" %></li>
+      
+      <% if signed_in? %>
+        <li><%= link_to "Sign out", signout_path, 
+              :method => :delete, :class => "create-icon round" %></li>
+      <% else %>
+        <li><%= link_to "Log in", signin_path, :class => "create-icon round" %></li>
+      <% end %>
+      
+      <% unless signed_in? %>
+        <li><%= link_to "Sign up", signup_path, 
+          :title => "Sign Up - for free", :class => "create-icon round" %>
+        </li>
+      <% end %>
     </ul>
   </nav>
 </header>
