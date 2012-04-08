@@ -1,0 +1,13 @@
+<h1>All users</h1>
+
+<div class="pagination over">
+  <%= will_paginate %>
+</div>
+<div id="listing">
+  <ul class="no_dec">
+    <%= render @users %>
+  </ul>
+</div>
+<div class="pagination under">
+  <%= will_paginate %>
+</div>

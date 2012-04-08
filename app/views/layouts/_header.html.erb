@@ -12,8 +12,11 @@
       <li><%= link_to image_tag("guidance.png", :alt => "Guidance"), "#" %></li>
       
       <% if signed_in? %>
+        <li><%= link_to "Your settings", edit_user_path(current_user), 
+          :title => "Change your name, password, profile picture", :class => "create-icon round" %>
+        </li>
         <li><%= link_to "Sign out", signout_path, 
-              :method => :delete, :class => "create-icon round" %></li>
+              :method => :delete, :class => "create-icon round exit" %></li>
       <% else %>
         <li><%= link_to "Log in", signin_path, :class => "create-icon round" %></li>
       <% end %>

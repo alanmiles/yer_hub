@@ -949,7 +949,7 @@ a.signup_button:active {
 /* used */
 .create {
   margin-top: 1em;
-  margin-bottom: -1em;
+  margin-bottom: 1em;
   display: block;
   text-align: center;
   color: #fff;
@@ -1005,6 +1005,16 @@ a.signup_button:active {
 .create-icon:hover {
   color: #FFD83D;
   text-decoration: underline;
+}
+
+/* used */
+.exit {
+  background: #EE0F21;
+  background-image: -moz-linear-gradient(top, #ECABB0, #EE0F21);
+  background-image: -ms-linear-gradient(top, #ECABB0, #EE0F21);
+  background-image: -o-linear-gradient(top, #ECABB0, #EE0F21);
+  background-image: -webkit-linear-gradient(top, #ECABB0, #EE0F21);
+  background-image: linear-gradient(top, #ECABB0, #EE0F21); 
 }
 
 /* used */
@@ -1105,6 +1115,12 @@ td.warning {
   border: 1px solid #999;
   margin-right: 5px;
   float: left;
+}
+
+/* used */
+.smaller-pic img {
+  height: 25px;
+  width: 25px;
 }
 
 /* used */
