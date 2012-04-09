@@ -14,7 +14,30 @@ describe PagesController do
       get :home
       response.should have_selector("title",
                     :content => "Yer Hub | Home")
-end
+    end
+  end
+
+  describe "GET 'admin home'" do
+    
+    describe "when user is not signed in" do
+      
+      it "should not be successful" do
+        get :admin_home
+        response.should_not be_success
+      end
+    
+    end
+    
+    describe "when signed-in user is not an admin" do
+      
+    
+    end
+    
+    describe "when signed-in user is an admin" do
+    
+    
+    end
+  
   end
 
   describe "GET 'contact'" do
