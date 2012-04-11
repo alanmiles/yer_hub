@@ -1,0 +1,18 @@
+<% if signed_in? %>
+  <% if current_user.admin? %>
+    <%= link_to image_tag("pageback.png", :title => "Notes index"), notes_path, :class => "magnify" %>
+  <% else %>
+    <%= link_to image_tag("pageback.png", :title => "Previous"), :back, :class => "magnify" %>
+  <% end %>
+<% else %>
+  <%= link_to image_tag("pageback.png", :title => "Previous"), :back, :class => "magnify" %>
+<% end %>
+
+<div class="r-float">
+  <% if signed_in? %>
+    <%= link_to "Edit", edit_note_path(@note) if current_user.admin? %>
+  <% end %>
+</div>
+
+<%= render 'details' %>
+

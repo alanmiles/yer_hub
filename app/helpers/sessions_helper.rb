@@ -69,7 +69,7 @@ module SessionsHelper
   
     def admin_user
       unless current_user.admin?
-        flash[:warning] = "Please use the HeaRt controls correctly - this action you requested is only available to administrators"
+        flash[:warning] = "Please use the HeaRt controls correctly - the action you requested is only available to administrators"
         redirect_to root_path
       end
     end

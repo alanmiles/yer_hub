@@ -9,7 +9,7 @@
   <nav>
     <ul>
       <li><%= link_to image_tag("home.png", :alt => "Home"), root_path %></li>
-      <li><%= link_to image_tag("guidance.png", :alt => "Guidance"), "#" %></li>
+      <li><span class="guidance"><%= link_to image_tag("guidance.png"), note_path(note_reference), :title => "Page help", :remote => true %></span></li>
       
       <% if signed_in? %>
         <li><%= link_to "Your settings", edit_user_path(current_user), 
@@ -35,6 +35,11 @@
   <%= javascript_tag do %>
    
    $(document).ready(function(){
+   
+    $('.guidance').click(function() {
+      $('#center-panel').toggle( 100, function() {
+      });
+    });
    
    });
     

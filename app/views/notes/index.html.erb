@@ -1,0 +1,29 @@
+<div class = "r-float">
+  <%= link_to "New note", new_note_path %><br />
+</div>
+
+<%= link_to image_tag("pageback.png", :title => "Previous"), admin_home_path, :class => "magnify" %>
+
+<div class="pagination over">
+  <%= will_paginate @notes %>
+</div>
+
+<div id="listing">
+  <ul class="no_dec">
+    <% @notes.each do |note| %>
+      <li>
+        <%= link_to note.title, note_path(note), :title => "View/edit note" %>
+        <span class="r-float">
+          <%= link_to image_tag("delete.png"), note, 
+    			:method => :delete, 
+    			:confirm => "Are you sure you want to delete the note for '#{note.title}'?",
+                        :title => "Delete note for '#{note.title}'" %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="pagination under">
+  <%= will_paginate @notes %>
+</div>

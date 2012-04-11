@@ -27,12 +27,14 @@ store.png: store-935c399bfda53d02aeb2262ee6419f45.png
 true.png: true-324bd370302c3471cec915c1fea28c09.png
 user.png: user-fefd9ffe8b62ceb3b3bbbc75b4142de4.png
 warning.png: warning-f4d4b844d23db06136150713fa98493a.png
-application.js: application-401279c9b800c2ba3480ed4126090c25.js
+application.js: application-0b5202e8cd0ed4544d941a4e896b244b.js
+currencies.js: currencies-ffb0539c1577faf6d298323414833299.js
+notes.js: notes-ffb0539c1577faf6d298323414833299.js
 pages.js: pages-ffb0539c1577faf6d298323414833299.js
 sessions.js: sessions-ffb0539c1577faf6d298323414833299.js
 users.js: users-ffb0539c1577faf6d298323414833299.js
 application-print.css: application-print-8ecda0e275fd4e9e5553758669fb4227.css
-application.css: application-cb0335db2c8dc02da52f8435adebe1de.css
+application.css: application-bc0082c5a0f5d1bab342c3bf066f90d2.css
 jquery-ui.js: jquery-ui-b232354aa54ee2b320d22541371b2635.js
 jquery-ui.min.js: jquery-ui.min-4258e47b40673a02bedfda178628bfba.js
 jquery.js: jquery-1afd31731ee301d4db70b342cf1a64e9.js

@@ -22,5 +22,8 @@ Factory.define :currency do |currency|
   currency.created_by		1
 end
 
-
+Factory.define :note do |note|
+  note.title			"Title"
+  note.content			"This is the content."
+end
 

@@ -1,0 +1,16 @@
+<div class ="shift_center_50">
+  <%= form_for(@note) do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>
+    <div class="field">
+      <%= f.label :title, "Title *" %><br />
+      <%= f.text_field :title %>
+    </div>
+    <div class="field">
+      <%= f.label :content, "Content *" %><br />
+      <%= f.text_area :content, :class => "upsize" %>
+    </div>
+    <div class="actions">
+      <%= f.submit :class => "create round" %>
+    </div>
+  <% end %>
+</div>

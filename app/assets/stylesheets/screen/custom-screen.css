@@ -1140,7 +1140,7 @@ div.actions {
 /* flash messages */
 
 /* used */
-.error, .alert, .notice, .success, .info {
+.error, .alert, .notice, .success, .warning, .info {
    padding:0.5em;
    margin-bottom:1em;
    margin-left: .5em;
