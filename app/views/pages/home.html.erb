@@ -1,7 +1,28 @@
-<h1>Sample App</h1>
-<p>
-  This is the home page for the
-  Yer Hub application.
-</p>
-<div class="no-print"><%= link_to "Sign up now!", signup_path, :class => "signup_button round" %></div>
+<div id="rubric">
+
+  Welcome to <strong>HeaRt</strong> - a state-of-the-art, full-featured HR package for forward-thinking businesses in the Gulf.
+  <br /><br />
+  For too long, HR has been regarded as a business support function - a bit of a nuisance, but necessary.  
+  It's our view that HR - managing people - is much more important than that.  It's people who create our products, provide services, shape our strategy, 
+  and build our relationships.  People are the beating heart of the business.
+  <br /><br />
+  HeaRt will help you to keep staff administration and payroll ticking over smoothly and efficiently.  More than that it'll also make your business
+  strong and healthy.  We'll show you how to find the best people, develop them, keep them.  So now:-
+
+
+  <ul class="no_dec under">
+    <li><%= link_to "Find out about HeaRt's special Gulf focus", "#" %></li>
+    <li><%= link_to "Learn from the HeaRt tutorials", "#" %></li>
+    <li><%= link_to "Get involved with the HeaRt blog", "#" %></li> 
+  </ul>
+
+</div>
+<% unless signed_in? %> 
+  <div class="no-print">
+
+     <div style="float:right"><%= link_to "or ... Log in", "#", :class => "signup_button round" %></div>
+     <div style ="float: left"><%= link_to "Sign up now!", signup_path, :class => "signup_button round" %></div>
+
+  </div> 
+<% end %>
    

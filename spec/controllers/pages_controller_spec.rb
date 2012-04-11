@@ -25,17 +25,36 @@ describe PagesController do
         get :admin_home
         response.should_not be_success
       end
-    
     end
     
     describe "when signed-in user is not an admin" do
       
-    
+      before(:each) do
+        test_sign_in(Factory(:user))
+      end
+      
+      it "should not be successful" do
+        get :admin_home
+        response.should_not be_success
+      end 
     end
     
     describe "when signed-in user is an admin" do
     
+      before(:each) do
+        @admin = Factory(:user, :admin => true)
+        test_sign_in(@admin)
+      end
+      
+      it "should be successful" do
+        get :admin_home
+        response.should be_success
+      end 
     
+      it "should have the right title" do
+        get :admin_home
+        response.should have_selector("title", :content => "Admin Home")
+      end
     end
   
   end

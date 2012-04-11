@@ -13,3 +13,14 @@ end
 Factory.sequence :email do |n|
   "person-#{n}@example.com"
 end
+
+Factory.define :currency do |currency|
+  currency.currency		"UAE Dirham"
+  currency.abbreviation		"AED"
+  currency.dec_places		2
+  currency.change_to_dollars	0.2722
+  currency.created_by		1
+end
+
+
+

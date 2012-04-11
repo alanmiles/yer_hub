@@ -915,12 +915,12 @@ a.action_button {
 
 /* used */
 a.signup_button {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 2em;
+  margin-right: 2em;
   margin-bottom: -2em;
   display: block;
   text-align: center;
-  width: 12em;
+  width: 8em;
   color: #fff;
   background: #366BA1;
   font-size: 100%;

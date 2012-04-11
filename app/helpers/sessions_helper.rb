@@ -26,6 +26,11 @@ module SessionsHelper
     redirect_to signin_path, :notice => "Please sign in to access this page."
   end
   
+  def expel
+    flash[:warning] = "Please use the correct HeaRt controls - you were not authorized to take this action!"
+    redirect_to root_path  
+  end
+  
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     clear_return_to
@@ -53,4 +58,27 @@ module SessionsHelper
     def clear_return_to
       session[:return_to] = nil
     end
+    
+    def authenticate
+      deny_access unless signed_in?
+    end
+    
+    def check_legality
+      expel unless signed_in?
+    end
+  
+    def admin_user
+      unless current_user.admin?
+        flash[:warning] = "Please use the HeaRt controls correctly - this action you requested is only available to administrators"
+        redirect_to root_path
+      end
+    end
+    
+    def not_admin_user
+      if signed_in?
+        if current_user.admin?
+          redirect_back_or admin_home_path
+        end
+      end
+    end      
 end

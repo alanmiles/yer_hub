@@ -1,0 +1,26 @@
+<%= link_to image_tag("pageback.png", :title => "Admin home"), admin_home_path, :class => "magnify" %>
+<div class="r-float">
+  <%= link_to "Add a currency", new_currency_path %>
+</div>
+
+<div id="listing">
+  
+  <ul class="no_dec"> 
+    <% @currencies.each do |currency| %>
+      <li>
+        <%= link_to currency.currency, edit_currency_path(currency) %>
+        (<%= currency.abbreviation %>)
+        <div class="r-float">
+          <% unless currency.approved? %>
+            <span class="subtext">
+              <%= link_to "Approval?", edit_currency_path(currency) %>
+            </span>
+          <% end %>
+          <%= link_to image_tag("delete.png"), currency, :method => :delete, :confirm => "Are you sure you want to delete #{currency.currency}?",
+                                :title => "Delete #{currency.currency}" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  
+</div>

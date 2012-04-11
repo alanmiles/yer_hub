@@ -1,0 +1,10 @@
+<%= link_to image_tag("pageback.png", :title => "Currency list"), currencies_path, :class => "magnify" %>
+
+<%= form_for(@currency) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit :class => "create round" %>
+  </div>
+<% end %>

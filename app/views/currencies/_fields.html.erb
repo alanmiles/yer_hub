@@ -1,0 +1,27 @@
+<div class="field">
+  <%= f.label :currency, "Currency name *" %>
+  <div class="subtext">
+    Use the singular form - ie <i>Dinar</i>, not <i>Dinars</i>.
+  </div>
+  <%= f.text_field :currency %>
+</div>
+<div class="field">
+  <%= f.label :abbreviation, "Abbreviation *" %>
+  <div class="subtext">
+    Use 3 letters.
+  </div>
+  <%= f.text_field :abbreviation, :size => 5 %>
+</div>
+<div class="field">
+  <%= f.label :dec_places, "Number of decimal places *" %><br />
+  <%= f.text_field :dec_places, :size => 5 %>
+</div>
+<div class="field">
+  <%= f.label :change_to_dollars, "Exchange rate" %>
+  <div class="subtext">
+    Number of dollars bought by 1 unit of this currency.
+  </div>
+  <%= f.text_field :change_to_dollars, :size => 10 %>
+</div>
+
+<%= f.hidden_field :created_by %>

@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120408060653) do
+ActiveRecord::Schema.define(:version => 20120410092027) do
+
+  create_table "currencies", :force => true do |t|
+    t.string   "currency"
+    t.string   "abbreviation"
+    t.integer  "dec_places"
+    t.decimal  "change_to_dollars", :precision => 8, :scale => 5
+    t.boolean  "approved",                                        :default => false
+    t.integer  "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
