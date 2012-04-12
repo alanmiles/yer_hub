@@ -4,6 +4,7 @@ YerHub::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :currencies
   resources :notes
+  resources :nationalities
   
   match '/signup',  	:to => 'users#new'
   match '/signin',  	:to => 'sessions#new'

@@ -27,3 +27,6 @@ Factory.define :note do |note|
   note.content			"This is the content."
 end
 
+Factory.define :nationality do |nationality|
+  nationality.nationality	"Irish"
+end
