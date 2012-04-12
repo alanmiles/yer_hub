@@ -28,5 +28,11 @@ Factory.define :note do |note|
 end
 
 Factory.define :nationality do |nationality|
-  nationality.nationality	"Irish"
+  nationality.nationality	"Emirati"
+end
+
+Factory.define :country do |country|
+  country.country		"United Arab Emirates"
+  country.association :nationality
+  country.association :currency
 end

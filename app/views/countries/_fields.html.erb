@@ -1,0 +1,14 @@
+<div class="field">
+  <%= f.label :country, "Country name *" %>
+  <%= f.text_field :country %>
+</div>
+<div class="field">
+  <%= f.label :nationality_id, "Home nationality *" %><br />
+  <%= collection_select(:country, :nationality_id, @nationalities, :id, 
+                        :nationality, :prompt => true) %>
+</div>
+<div class="field">
+  <%= f.label :currency_id, "Home currency *" %><br />
+  <%= collection_select(:country, :currency_id, @currencies, :id, 
+                         :currency, :prompt => true) %>
+</div>

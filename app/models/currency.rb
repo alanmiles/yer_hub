@@ -17,6 +17,8 @@ class Currency < ActiveRecord::Base
 
   attr_accessible :currency, :abbreviation, :dec_places, :change_to_dollars, :approved, :created_by
   
+  has_many :countries
+  
   validates :currency,		:presence 	=> true,
   				:length		=> { :maximum => 50 },
   				:uniqueness 	=> { :case_sensitive => false }

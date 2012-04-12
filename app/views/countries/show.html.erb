@@ -1,0 +1,10 @@
+<%= link_to image_tag("pageback.png", :title => "Country list"), countries_path, :class => "magnify" %>
+<h1><%= link_to @country.country.upcase, edit_country_path(@country) %>
+  <span class="subtext">
+    (Click to edit)
+  </span>
+</h1>
+<div id="rubric">
+  Home nationality: <%= @country.nationality.nationality %><br />
+  Home currency: <%= @country.currency.currency %> <i>(<%= @country.currency.abbreviation %>)</i>
+</div>

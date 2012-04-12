@@ -55,7 +55,7 @@ class CurrenciesController < ApplicationController
   def destroy
     @currency = Currency.find(params[:id])
     @currency.destroy
-    flash[:success] = "#{@currency.currency} has been successfully removed from the list."
+    flash[:success] = "'#{@currency.currency}' has been successfully removed from the list."
     redirect_to currencies_path
   end
 end

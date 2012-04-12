@@ -1,0 +1,24 @@
+<%= link_to image_tag("pageback.png", :title => "Admin home"), admin_home_path, :class => "magnify" %>
+<div class="r-float">
+  <%= link_to "Add a country", new_country_path %>
+</div>
+
+<div id="listing">
+  
+  <ul class="no_dec"> 
+    <% @countries.each do |country| %>
+      <li>
+        <%= link_to country.country, edit_country_path(country) %>
+        <div class="r-float">
+          <%= link_to image_tag("delete.png"), country, :method => :delete, :confirm => "Are you sure you want to delete '#{country.country}'?",
+                                :title => "Delete '#{country.country}'" %>
+        </div>
+        <div class="subtext">
+           Home nationality: <%= country.nationality.nationality %><br /> 
+           Home currency: <%= country.currency.currency %> <i>(<%= country.currency.abbreviation %>)</i>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  
+</div>

@@ -17,7 +17,7 @@ class NationalitiesController < ApplicationController
   def create
     @nationality = Nationality.new(params[:nationality])
     if @nationality.save
-      flash[:success] = "You have successfully added #{@nationality.nationality} to the list."
+      flash[:success] = "You have successfully added '#{@nationality.nationality}' to the list."
       redirect_to nationalities_path
     else
       @title = "New nationality"
@@ -34,7 +34,7 @@ class NationalitiesController < ApplicationController
   def update
     @nationality = Nationality.find(params[:id])
     if @nationality.update_attributes(params[:nationality])
-      flash[:success] = "#{@nationality.nationality} updated."
+      flash[:success] = "'#{@nationality.nationality}' updated."
       redirect_to nationalities_path
     else
       @title = "Edit nationality"
@@ -45,7 +45,7 @@ class NationalitiesController < ApplicationController
   def destroy
     @nationality = Nationality.find(params[:id])
     @nationality.destroy
-    flash[:success] = "#{@nationality.nationality} has been successfully removed from the list."
+    flash[:success] = "'#{@nationality.nationality}' has been successfully removed from the list."
     redirect_to nationalities_path
   end 
 
