@@ -1,0 +1,154 @@
+currency;abbreviation;dec_places;change_to_dollars;approved;created_by
+UAE Dirham;AED;100;0.27228;TRUE;1
+Afghani;AFN;100;;TRUE;1
+Lek;ALL;100;;TRUE;1
+Dram;AMD;100;;TRUE;1
+Netherlands Antillean Guilder;ANG;100;;TRUE;1
+Kwanza;AOA;100;;TRUE;1
+Argentine Peso;ARS;100;0.22784;TRUE;1
+Australian Dollar;AUD;100;1.03875;TRUE;1
+Aruban Guilder;AWG;100;;TRUE;1
+Azerbaijani Manat;AZN;100;;TRUE;1
+Convertible Mark;BAM;100;;TRUE;1
+Barbados Dollar;BBD;100;;TRUE;1
+Taka;BDT;100;;TRUE;1
+Lev;BGN;100;;TRUE;1
+Bahraini Dinar;BHD;1000;2.65633;TRUE;1
+Burundi Franc;BIF;100;;TRUE;1
+Bermuda Dollar;BMD;100;;TRUE;1
+Brunei Dollar;BND;100;;TRUE;1
+Boliviano;BOB;100;0.14472;TRUE;1
+Real;BRL;100;0.54669;TRUE;1
+Bahamian Dollar;BSD;100;;TRUE;1
+Pula;BWP;100;0.13489;TRUE;1
+Belarusian Rouble;BYR;100;;TRUE;1
+Belize Dollar;BZD;100;;TRUE;1
+Canadian Dollar;CAD;100;1.00422;TRUE;1
+Congolese Franc;CDF;100;;TRUE;1
+Swiss Franc;CHF;100;1.09007;TRUE;1
+Chilean Peso;CLP;1;0.00207;TRUE;1
+Yuan;CNY;100;0.15892;TRUE;1
+Colombian Peso;COP;100;0.00056;TRUE;1
+Costa Rican Colón;CRC;100;;TRUE;1
+Cuban Peso;CUP;100;;TRUE;1
+Cape Verde Escudo;CVE;100;;TRUE;1
+Czech Koruna;CZK;100;0.05302;TRUE;1
+Djibouti Franc;DJF;100;;TRUE;1
+Danish Krone;DKK;100;0.17612;TRUE;1
+Dominican Peso;DOP;100;;TRUE;1
+Algerian Dinar;DZD;100;0.01345;TRUE;1
+Egyptian Pound;EGP;100;0.16567;TRUE;1
+Nakfa;ERN;100;;TRUE;1
+Birr;ETB;100;;TRUE;1
+Euro;EUR;100;1.31044;TRUE;1
+Fiji Dollar;FJD;100;;TRUE;1
+Falkland Islands Pound;FKP;100;;TRUE;1
+Pound Sterling;GBP;100;1.5921;TRUE;1
+Lari;GEL;100;;TRUE;1
+Ghana Cedi;GHS;100;0.0001;TRUE;1
+Gibraltar Pound;GIP;100;;TRUE;1
+Dalasi;GMD;100;;TRUE;1
+Guinean Franc;GNF;100;;TRUE;1
+Quetzal;GTQ;100;0.12953;TRUE;1
+Guyana Dollar;GYD;100;;TRUE;1
+Hong Kong Dollar;HKD;100;0.12887;TRUE;1
+Lempira;HNL;100;;TRUE;1
+Kuna;HRK;100;;TRUE;1
+Forint;HUF;100;0.00441;TRUE;1
+Indonesian Rupiah;IDR;100;0.00011;TRUE;1
+Shekel;ILS;100;0.26702;TRUE;1
+Indian Rupee;INR;100;0.01949;TRUE;1
+Iraqi Dinar;IQD;100;;TRUE;1
+Iranian Rial;IRR;100;;TRUE;1
+Króna;ISK;100;;TRUE;1
+Jamaica Dollar;JMD;100;;TRUE;1
+Jordanian Dinar;JOD;100;1.41123;TRUE;1
+Yen;JPY;100;0.01235;TRUE;1
+Kenyan Shilling;KES;100;0.01207;TRUE;1
+Som;KGS;100;;TRUE;1
+Riel;KHR;100;;TRUE;1
+Comorian Franc;KMF;100;;TRUE;1
+North Korean Won;KPW;100;;TRUE;1
+South Korean Won;KRW;100;0.00088;TRUE;1
+Kuwaiti Dinar;KWD;1000;3.59325;TRUE;1
+Cayman Islands Dollar;KYD;100;;TRUE;1
+Tenge;KZT;100;;TRUE;1
+Kip;LAK;100;;TRUE;1
+Lebanese Pound;LBP;100;;TRUE;1
+Sri Lankan Rupee;LKR;100;;TRUE;1
+Liberian Dollar;LRD;100;;TRUE;1
+Litas;LTL;100;;TRUE;1
+Lats;LVL;100;;TRUE;1
+Libyan Dinar;LYD;1000;;TRUE;1
+Moroccan Dirham;MAD;100;0.11786;TRUE;1
+Moldovan Leu;MDL;100;;TRUE;1
+Ariary;MGA;5;;TRUE;1
+Denar;MKD;100;;TRUE;1
+Kyat;MMK;100;;TRUE;1
+Tugrik;MNT;100;;TRUE;1
+Pataca;MOP;100;;TRUE;1
+Ouguiya;MRO;5;;TRUE;1
+Mauritian Rupee;MUR;100;;TRUE;1
+Rufiyaa;MVR;100;;TRUE;1
+Malawian Kwacha;MWK;100;;TRUE;1
+Mexican Peso;MXN;100;0.07637;TRUE;1
+Ringgit;MYR;100;0.32723;TRUE;1
+Metical;MZN;100;;TRUE;1
+Naira;NGN;100;;TRUE;1
+Córdoba Oro;NIO;100;;TRUE;1
+Norwegian Krone;NOK;100;0.17272;TRUE;1
+Nepalese Rupee;NPR;100;;TRUE;1
+New Zealand Dollar;NZD;100;0.8274;TRUE;1
+Omani Rial;OMR;1000;2.59808;TRUE;1
+New Sol;PEN;100;0.37651;TRUE;1
+Kina;PGK;100;;TRUE;1
+Philippine Peso;PHP;100;0.02347;TRUE;1
+Pakistani Rupee;PKR;100;0.01109;TRUE;1
+Zloty;PLN;100;;TRUE;1
+Guaraní;PYG;100;;TRUE;1
+Qatari Riyal;QAR;100;0.27483;TRUE;1
+Romanian Leu;RON;100;;TRUE;1
+Serbian Dinar;RSD;100;;TRUE;1
+Russian Rouble;RUB;100;0.03384;TRUE;1
+Rwandese Franc;RWF;100;;TRUE;1
+Riyal;SAR;100;0.26668;TRUE;1
+Solomon Islands Dollar;SBD;100;;TRUE;1
+Seychelles Rupee;SCR;100;;TRUE;1
+Sudanese Pound;SDG;100;;TRUE;1
+Krona;SEK;100;0.1473;TRUE;1
+Singapore Dollar;SGD;100;0.80245;TRUE;1
+Saint Helena Pound;SHP;100;;TRUE;1
+Leone;SLL;100;;TRUE;1
+Somali Shilling;SOS;100;;TRUE;1
+Surinamese Dollar;SRD;100;;TRUE;1
+South Sudanese Pound;SSP;100;;TRUE;1
+Dobra;STD;100;;TRUE;1
+Salvadorian Colón;SVC;100;;TRUE;1
+Syrian Pound;SYP;100;;TRUE;1
+Lilangeni;SZL;100;;TRUE;1
+Baht;THB;100;0.03254;TRUE;1
+Somoni;TJS;100;;TRUE;1
+Turkmen Manat;TMT;100;;TRUE;1
+Tunisian Dinar;TND;1000;0.65445;TRUE;1
+Pa’anga;TOP;100;;TRUE;1
+Turkish Lira;TRY;100;0.55932;TRUE;1
+Trinidad and Tobago Dollar;TTD;100;;TRUE;1
+New Taiwan Dollar;TWD;100;0.0339;TRUE;1
+Tanzanian Shilling;TZS;100;0.00063;TRUE;1
+Hryvnia;UAH;100;;TRUE;1
+Uganda Shilling;UGX;100;;TRUE;1
+US Dollar;USD;100;1;TRUE;1
+Uruguayan Peso;UYU;100;;TRUE;1
+Sum;UZS;100;;TRUE;1
+Bolívar Fuerte;VEF;100;0.23309;TRUE;1
+Dong;VND;10;0.00005;TRUE;1
+Vatu;VUV;1;;TRUE;1
+Tala;WST;100;;TRUE;1
+CFA Franc (BEAC);XAF;100;;TRUE;1
+East Caribbean Dollar;XCD;100;;TRUE;1
+CFA Franc (BCEAO);XOF;100;;TRUE;1
+CFP Franc;XPF;100;;TRUE;1
+Yemeni Rial;YER;100;;TRUE;1
+Rand;ZAR;100;0.12638;TRUE;1
+Zambian Kwacha;ZMK;100;;TRUE;1
+Zimbabwe Dollar;ZWL;100;0.0026;TRUE;1

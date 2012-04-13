@@ -1,0 +1,239 @@
+country;nationality_id;currency_id
+Afghanistan;Afghan;AFN
+Åland Islands;Åland Islander;EUR
+Albania;Albanian;ALL
+Algeria;Algerian;DZD
+American Samoa;American Samoan;USD
+Andorra;Andorran;EUR
+Angola;Angolan;AOA
+Anguilla ;Anguillan;XCD
+Antigua and Barbuda;Antiguan;XCD
+Argentina;Argentinian;ARS
+Armenia;Armenian;AMD
+Aruba;Aruban;AWG
+Australia;Australian;AUD
+Austria;Austrian;EUR
+Azerbaijan;Azerbaijani;AZN
+Bahamas;Bahamian;BSD
+Bahrain;Bahraini;BHD
+Bangladesh;Bangladeshi;BDT
+Barbados;Barbadian;BBD
+Belarus;Belarusian;BYR
+Belgium;Belgian;EUR
+Belize;Belizean;BZD
+Benin;Beninese;XOF
+Bermuda;Bermudian;BMD
+Bhutan;Bhutanese;INR
+Bolivia;Bolivian;BOB
+Bosnia and Herzegovina;Bosnian;BAM
+Botswana;Botswanan;BWP
+Brazil;Brazilian;BRL
+British Virgin Islands;British Virgin Islander;USD
+Brunei;Bruneian;BND
+Bulgaria;Bulgarian;BGN
+Burkina Faso;Burkinabe;XOF
+Burundi;Burundian;BIF
+Cambodia;Cambodian;KHR
+Cameroon;Cameroonian;XAF
+Canada;Canadian;CAD
+Cape Verde;Cape Verdean;CVE
+Cayman Islands;Caymanian;KYD
+Central African Republic;Central African;XAF
+Chad;Chadian;XAF
+Chile;Chilean;CLP
+China;Chinese;CNY
+Christmas Island;Christmas Islander;AUD
+Cocos Islands;Cocos Islander;AUD
+Colombia;Colombian;COP
+Comoros;Comorian;KMF
+Congo;Congolese;XAF
+Cook Islands;Cook Islander;NZD
+Costa Rica;Costa Rican;CRC
+Côte d’Ivoire;Ivorian;XOF
+Croatia;Croat;HRK
+Cuba;Cuban;CUP
+Curaçao;Curaçaoan;ANG
+Cyprus;Cypriot;EUR
+Czech Republic;Czech;CZK
+Democratic Republic of the Congo;Congolese;CDF
+Denmark;Danish;DKK
+Djibouti;Djiboutian;DJF
+Dominica;Dominican;XCD
+Dominican Republic;Dominican;DOP
+East Timor;East Timorese;USD
+Ecuador;Ecuadorian;USD
+Egypt;Egyptian;EGP
+El Salvador;Salvadoran;SVC
+Equatorial Guinea;Equatorial Guinean;XAF
+Eritrea;Eritrean;ERN
+Estonia;Estonian;EUR
+Ethiopia;Ethiopian;ETB
+Faeroe Islands;Faeroese;DKK
+Falkland Islands;Falkland Islander;FKP
+Fiji;Fijian;FJD
+Finland;Finnish;EUR
+France;French;EUR
+French Guiana;Guianese;EUR
+French Polynesia;Polynesian;XPF
+Gabon;Gabonese;XAF
+Gambia;Gambian;GMD
+Georgia;Georgian;GEL
+Germany;German;EUR
+Ghana;Ghanaian;GHS
+Gibraltar;Gibraltarian;GIP
+Greece;Greek;EUR
+Greenland;Greenlander;DKK
+Grenada;Grenadian;XCD
+Guadeloupe;Guadeloupean;EUR 
+Guam;Guamanian;USD
+Guatemala;Guatemalan;GTQ
+Guernsey;Guernsey national;GBP
+Guinea;Guinean;GNF
+Guinea-Bissau;Guinea-Bissau national;XOF
+Guyana;Guyanese;GYD
+Haiti;Haitian;USD
+Honduras;Honduran;HNL
+Hong Kong;Hong Kong Chinese;HKD
+Hungary;Hungarian;HUF
+Iceland;Icelandic;ISK
+India;Indian;INR
+Indonesia;Indonesian;IDR
+Iran;Iranian;IRR
+Iraq;Iraqi;IQD
+Ireland;Irish;EUR
+Isle of Man;Manx;GBP
+Israel;Israeli;ILS
+Italy;Italian;EUR
+Jamaica;Jamaican;JMD
+Japan;Japanese;JPY
+Jersey;Jersey national;GBP
+Jordan;Jordanian;JOD
+Kazakhstan;Kazakh;KZT
+Kenya;Kenyan;KES
+Kiribati;Kiribatian;AUD
+Kuwait;Kuwaiti;KWD
+Kyrgyzstan;Kyrgyz;KGS
+Laos;Lao;LAK
+Latvia;Latvian;LVL
+Lebanon;Lebanese;LBP
+Lesotho;Basotho;ZAR
+Liberia;Liberian;LRD
+Libya;Libyan;LYD
+Liechtenstein;Liechtensteiner;CHF
+Lithuania;Lithuanian;LTL
+Luxembourg;Luxembourger;EUR
+Macao;Macanese;MOP
+Macedonia;Macedonian;MKD
+Madagascar;Malagasy;MGA
+Malawi;Malawian;MWK
+Malaysia;Malaysian;MYR
+Maldives;Maldivian;MVR
+Mali;Malian;XOF
+Malta;Maltese;EUR
+Marshall Islands;Marshallese;USD
+Martinique;Martinican;EUR
+Mauritania;Mauritanian;MRO
+Mauritius;Mauritian;MUR
+Mayotte;Mahorais;EUR
+Mexico;Mexican;MXN
+Micronesia;Micronesian;USD
+Moldova;Moldovan;MDL
+Monaco;Monegasque;EUR
+Mongolia;Mongolian;MNT
+Montenegro;Montenegrin;EUR
+Montserrat;Montserratian;XCD
+Morocco;Moroccan;MAD
+Mozambique;Mozambican;MZN
+Myanmar;Myanmar national;MMK
+Namibia;Namibian;ZAR
+Nauru;Nauruan;AUD
+Nepal;Nepalese;NPR
+Netherlands;Dutch;EUR
+New Caledonia;New Caledonian;XPF
+New Zealand;New Zealander;NZD
+Nicaragua;Nicaraguan;NIO
+Niger;Nigerien;XOF
+Nigeria;Nigerian;NGN
+Niue;Niuean;NZD
+Norfolk Island;Norfolk Islander;AUD
+North Korea;North Korean;KPW
+Northern Mariana Islands;Northern Mariana Islander;USD
+Norway;Norwegian;NOK
+Oman;Omani;OMR
+Pakistan;Pakistani;PKR
+Palau;Palauan;USD
+Panama;Panamanian;USD
+Papua New Guinea;Papua New Guinean;PGK
+Paraguay;Paraguayan;PYG
+Peru;Peruvian;PEN
+Philippines;Filipino;PHP
+Pitcairn Islands;Pitcairner;NZD
+Poland;Pole;PLN
+Portugal;Portuguese;EUR
+Puerto Rico;Puerto Rican;USD
+Qatar;Qatari;QAR
+Réunion;Reunionese;EUR
+Romania;Romanian;RON
+Russia;Russian;RUB
+Rwanda;Rwandan;RWF
+Saint Barthélemy;Saint Barthélemy national;EUR
+Saint Helena;Saint Helenian;SHP
+Saint Kitts and Nevis;Kittsian;XCD
+Saint Lucia;Saint Lucian;XCD
+Saint Martin;Saint Martin national;EUR
+Saint Pierre and Miquelon;Miquelonnais;EUR
+Saint Vincent and the Grenadines;Vincentian;XCD
+Samoa;Samoan;WST
+San Marino;San Marinese;EUR 
+São Tomé and Príncipe;São Toméan;STD
+Saudi Arabia;Saudi Arabian;SAR
+Senegal;Senegalese;XOF
+Serbia;Serb;RSD
+Seychelles;Seychellois;SCR
+Sierra Leone;Sierra Leonean;SLL
+Singapore;Singaporean;SGD
+Sint Maarten;Sint Maartener;ANG
+Slovakia;Slovak;EUR
+Slovenia;Slovene;EUR
+Solomon Islands;Solomon Islander;SBD
+Somalia;Somali;SOS
+South Africa;South African;ZAR
+South Korea;South Korean;KRW
+South Sudan ;South Sudanese;SSP
+Spain;Spaniard;EUR
+Sri Lanka;Sri Lankan;LKR
+Sudan;Sudanese;SDG
+Suriname;Surinamer;SRD
+Swaziland;Swazi;SZL
+Sweden;Swedish;SEK
+Switzerland;Swiss;CHF
+Syria;Syrian;SYP
+Taiwan;Taiwanese;TWD
+Tajikistan;Tajik;TJS
+Tanzania;Tanzanian;TZS
+Thailand;Thai;THB
+Togo;Togolese;XOF
+Tonga;Tongan;TOP
+Trinidad and Tobago;Trinidadian;TTD
+Tunisia;Tunisian;TND
+Turkey;Turk;TRY
+Turkmenistan;Turkmen;TMT
+Turks and Caicos Islands;Turks and Caicos Islander;USD
+Tuvalu;Tuvaluan;AUD
+Uganda;Ugandan;UGX
+Ukraine;Ukrainian;UAH
+United Arab Emirates;Emirati;AED
+United Kingdom;British;GBP
+United States;American;USD
+Uruguay;Uruguayan;UYU
+US Virgin Islands;US Virgin Islander;USD
+Uzbekistan;Uzbek;UZS
+Vanuatu;Vanuatuan;VUV
+Vatican City;Vatican national;EUR
+Venezuela;Venezuelan;VEF
+Vietnam;Vietnamese;VND
+Wallis and Futuna;Wallisian;XPF
+Western Sahara;Sahrawi;MAD
+Yemen;Yemenite;YER
+Zambia;Zambian;ZMK
+Zimbabwe;Zimbabwean;ZWL
