@@ -1,0 +1,221 @@
+occupation;approved;created_by
+Accountant;TRUE;1
+Actor;TRUE;1
+Administrator;TRUE;1
+Advertising;TRUE;1
+Agriculture;TRUE;1
+Air Traffic Control;TRUE;1
+Animal Care;TRUE;1
+Animator;TRUE;1
+Architect;TRUE;1
+Armed Forces;TRUE;1
+Artist;TRUE;1
+Auctioneer;TRUE;1
+Auditor;TRUE;1
+Baker;TRUE;1
+Banker;TRUE;1
+Beautician;TRUE;1
+Biochemist;TRUE;1
+Boatbuilder;TRUE;1
+Botanist;TRUE;1
+Bricklayer;TRUE;1
+Broadcasting;TRUE;1
+Business Consultant;TRUE;1
+Butcher;TRUE;1
+Cabinetmaker;TRUE;1
+Car-Park Attendant;TRUE;1
+Care Worker;TRUE;1
+Careers Adviser;TRUE;1
+Carpenter/Joiner;TRUE;1
+Chef;TRUE;1
+Chemist;TRUE;1
+Civil Engineer;TRUE;1
+Cleaner;TRUE;1
+Clerk;TRUE;1
+Club Organizer;TRUE;1
+Collection Agent;TRUE;1
+Commodities Trader;TRUE;1
+Community Worker;TRUE;1
+Computer Analyst;TRUE;1
+Computer Programmer;TRUE;1
+Construction Worker;TRUE;1
+Counsellor;TRUE;1
+Craftsman;TRUE;1
+Creative Director;TRUE;1
+Customer Relations;TRUE;1
+Database Administrator;TRUE;1
+Dental Hygienist;TRUE;1
+Dental Technician;TRUE;1
+Dentist;TRUE;1
+Doctor;TRUE;1
+Draughtsman;TRUE;1
+Driver;TRUE;1
+Economist;TRUE;1
+Editor;TRUE;1
+Education Manager;TRUE;1
+Electrical Engineer;TRUE;1
+Electrician;TRUE;1
+Electronics Engineer;TRUE;1
+Engineer;TRUE;1
+Engineering Manager;TRUE;1
+Environmental Expert;TRUE;1
+Environmental Worker;TRUE;1
+Estate Agent;TRUE;1
+Estimator;TRUE;1
+Event Organizer;TRUE;1
+Fashion Designer;TRUE;1
+Film Editor;TRUE;1
+Financial Officer;TRUE;1
+Fire Officer;TRUE;1
+Fisherman;TRUE;1
+Fitness Instructor;TRUE;1
+Fitter;TRUE;1
+Florist;TRUE;1
+Food Inspector;TRUE;1
+Food Technologist;TRUE;1
+Forester;TRUE;1
+Gallery Curator;TRUE;1
+Gardener;TRUE;1
+Gasfitter;TRUE;1
+Geologist;TRUE;1
+Glazier;TRUE;1
+Graphic Designer;TRUE;1
+Groundsman;TRUE;1
+Hairdresser;TRUE;1
+Hardware Technician;TRUE;1
+Health & Safety Officer;TRUE;1
+Health Worker;TRUE;1
+Heating/Refrigeration;TRUE;1
+Hospital worker;TRUE;1
+Hotel Management;TRUE;1
+Hotel Worker;TRUE;1
+HR Assistant;TRUE;1
+HR Manager;TRUE;1
+Illustrator;TRUE;1
+Import/Export Clerk;TRUE;1
+Instrument Maker;TRUE;1
+Instrument Operator;TRUE;1
+Insurance Broker;TRUE;1
+Interior Designer;TRUE;1
+Interpreter/Translator;TRUE;1
+IT Security;TRUE;1
+Jeweller;TRUE;1
+Journalist;TRUE;1
+Laboratory Assistant;TRUE;1
+Laboratory Manager;TRUE;1
+Landscape Architect;TRUE;1
+Legal Assistant;TRUE;1
+Legal Expert;TRUE;1
+Librarian/Archivist;TRUE;1
+Lighting Engineer;TRUE;1
+Locksmith;TRUE;1
+Machine Operator;TRUE;1
+Maintenance;TRUE;1
+Manager;TRUE;1
+Marine Biologist;TRUE;1
+Market Researcher;TRUE;1
+Marketing;TRUE;1
+Massage Therapist;TRUE;1
+Mechanic;TRUE;1
+Medical Administrator;TRUE;1
+Medical Professional;TRUE;1
+Merchandizer;TRUE;1
+Metal Fabricator;TRUE;1
+Midwife;TRUE;1
+Miner;TRUE;1
+Mining Engineer;TRUE;1
+Minister of Religion;TRUE;1
+Musician;TRUE;1
+Network Specialist;TRUE;1
+Nurse;TRUE;1
+Nursery Assistant;TRUE;1
+Optician;TRUE;1
+Painter/Decorator;TRUE;1
+Panelbeater;TRUE;1
+Park Ranger;TRUE;1
+Pathologist;TRUE;1
+Pharmacist;TRUE;1
+Physiotherapist;TRUE;1
+Picture Framer;TRUE;1
+Pilot;TRUE;1
+Planning Officer;TRUE;1
+Plant Operator;TRUE;1
+Plasterer;TRUE;1
+Plumber;TRUE;1
+Police Officer;TRUE;1
+Potter/Ceramic Artist;TRUE;1
+Press Officer;TRUE;1
+Printer;TRUE;1
+Prison Warden;TRUE;1
+Probation Officer;TRUE;1
+Production Manager;TRUE;1
+Project Manager;TRUE;1
+Psychiatrist;TRUE;1
+Psychologist;TRUE;1
+Public Relations;TRUE;1
+Publishing;TRUE;1
+Quality Assurance;TRUE;1
+Quantity Surveyor;TRUE;1
+Radio/TV Presenter;TRUE;1
+Receptionist;TRUE;1
+Recreation Assistant;TRUE;1
+Recreation Manager;TRUE;1
+Recruiter;TRUE;1
+Roof Tiler;TRUE;1
+Sailmaker;TRUE;1
+Sailor;TRUE;1
+Sales Manager;TRUE;1
+Salesperson;TRUE;1
+Scaffolder;TRUE;1
+Scientific Researcher;TRUE;1
+Scientist;TRUE;1
+Screen Printer;TRUE;1
+Search Engine Specialist;TRUE;1
+Secretary;TRUE;1
+Senior Manager;TRUE;1
+Sheetmetal Worker;TRUE;1
+Shelf-Stocker;TRUE;1
+Shoemaker;TRUE;1
+Shop Assistant;TRUE;1
+Signwriter;TRUE;1
+Sound Engineer;TRUE;1
+Speech Therapist;TRUE;1
+Sports Administrator;TRUE;1
+Sports Coach;TRUE;1
+Stage Manager;TRUE;1
+Statistician;TRUE;1
+Stonemason;TRUE;1
+Surveyor;TRUE;1
+Systems Analyst;TRUE;1
+Tailor/Dressmaker;TRUE;1
+Teacher;TRUE;1
+Technical Writer;TRUE;1
+Technician;TRUE;1
+Telecomms Engineer;TRUE;1
+Telecomms Technician;TRUE;1
+Toolmaker;TRUE;1
+Traffic Warden;TRUE;1
+Trainer;TRUE;1
+Undertaker;TRUE;1
+Upholsterer;TRUE;1
+Urban Planner;TRUE;1
+Vehicle Body Builder;TRUE;1
+Vehicle Mechanic;TRUE;1
+Vehicle Painter;TRUE;1
+Veterinarian;TRUE;1
+Wall and Floor Tiler;TRUE;1
+Watchmaker/Repairer;TRUE;1
+Web Designer;TRUE;1
+Welder;TRUE;1
+Window Cleaner;TRUE;1
+Woodturner;TRUE;1
+Writer;TRUE;1
+Youth Worker;TRUE;1
+Call Center Assistant;TRUE;1
+Restaurant/Bar Worker;TRUE;1
+Travel Agent;TRUE;1
+Tour Guide;TRUE;1
+Cook;TRUE;1
+Kitchen Assistant;TRUE;1
+Procurement;TRUE;1
+Logistics;TRUE;1

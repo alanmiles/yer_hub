@@ -20,7 +20,7 @@
 <% unless signed_in? %> 
   <div class="no-print">
 
-     <div style="float:right"><%= link_to "or ... Log in", "#", :class => "signup_button round" %></div>
+     <div style="float:right"><%= link_to "or ... Log in", signin_path, :class => "signup_button round" %></div>
      <div style ="float: left"><%= link_to "Sign up now!", signup_path, :class => "signup_button round" %></div>
 
   </div> 

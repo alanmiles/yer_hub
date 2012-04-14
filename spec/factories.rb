@@ -42,3 +42,8 @@ Factory.define :sector do |sector|
   sector.created_by		1
 end
 
+Factory.define :occupation do |occupation|
+  occupation.occupation		"Sales"
+  occupation.created_by		1
+end
+

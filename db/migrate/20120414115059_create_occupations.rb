@@ -1,7 +1,7 @@
-class CreateSectors < ActiveRecord::Migration
+class CreateOccupations < ActiveRecord::Migration
   def change
-    create_table :sectors do |t|
-      t.string :sector
+    create_table :occupations do |t|
+      t.string :occupation
       t.boolean :approved, :default => false
       t.integer :created_by
 
