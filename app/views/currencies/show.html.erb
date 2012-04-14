@@ -6,7 +6,7 @@
 </h1>
 <div id="rubric">
   Abbreviation: <%= @currency.abbreviation %><br />
-  Decimal places used: <%= @currency.dec_places %><br />
+  Number of currency subunits: <%= @currency.dec_places %><br />
   Exchange rate: (How many dollars for 1 unit?) <%= @currency.change_to_dollars %><br >
   Entered by: <%= @creator.name %> <i>(User ID <%= @creator.id %>)</i><br />
   <strong><%= approval_text.upcase %></strong>

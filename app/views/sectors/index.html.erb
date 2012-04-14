@@ -1,0 +1,25 @@
+<%= link_to image_tag("pageback.png", :title => "Admin home"), admin_home_path, :class => "magnify" %>
+<div class="r-float">
+  <%= link_to "Add a sector", new_sector_path %>
+</div>
+
+<div id="listing">
+  
+  <ul class="no_dec"> 
+    <% @sectors.each do |sector| %>
+      <li>
+        <%= link_to sector.sector, edit_sector_path(sector) %>
+        <div class="r-float">
+          <% unless sector.approved? %>
+            <span class="subtext">
+              <%= link_to "Approval?", edit_sector_path(sector) %>
+            </span>
+          <% end %>
+          <%= link_to image_tag("delete.png"), sector, :method => :delete, :confirm => "Are you sure you want to delete '#{sector.sector}'?",
+                                :title => "Delete '#{sector.sector}'" %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  
+</div>

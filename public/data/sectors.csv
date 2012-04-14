@@ -1,0 +1,44 @@
+sector,approved,created_by
+Agriculture,TRUE,1
+Marine,TRUE,1
+Automobiles,TRUE,1
+Banking,TRUE,1
+Chemicals,TRUE,1
+Business Services,TRUE,1
+Clothing & Textiles,TRUE,1
+Construction & Materials,TRUE,1
+Containers & Packaging,TRUE,1
+Delivery/Logistics,TRUE,1
+Education & Training,TRUE,1
+IT,TRUE,1
+Energy,TRUE,1
+Engineering,TRUE,1
+Environment & Waste,TRUE,1
+Facilities Management,TRUE,1
+Forestry & Paper,TRUE,1
+Healthcare,TRUE,1
+Pharmaceuticals,TRUE,1
+Insurance,TRUE,1
+Manufacturing,TRUE,1
+Media,TRUE,1
+Mining & Metals,TRUE,1
+Oil & Gas,TRUE,1
+Aerospace & Defence,TRUE,1
+Household Goods,TRUE,1
+Health & Beauty,TRUE,1
+Public Sector,TRUE,1
+Retail,TRUE,1
+Sport,TRUE,1
+Telecommunications,TRUE,1
+Tourism & Leisure,TRUE,1
+Transportation,TRUE,1
+Utilities,TRUE,1
+Biotechnology,TRUE,1
+Energy,TRUE,1
+Infrastructure,TRUE,1
+Property,TRUE,1
+Legal,TRUE,1
+Food & Beverages,TRUE,1
+Financial Services,TRUE,1
+Entertainment,TRUE,1
+The Arts,TRUE,1

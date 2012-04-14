@@ -1,10 +1,9 @@
-<%= link_to image_tag("pageback.png", :title => "Countries list"), @countries, :class => "magnify" %>
+<%= link_to image_tag("pageback.png", :title => "Sector list"), sectors_path, :class => "magnify" %>
 
-<%= form_for(@country) do |f| %>
+<%= form_for(@sector) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   
   <%= render 'fields', :f => f %>
-  
   <div class="actions">
     <%= f.submit :class => "create round" %>
   </div>

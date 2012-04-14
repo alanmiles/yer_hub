@@ -51,6 +51,24 @@ namespace :import do
     end
   end
   
+  desc "populate database with data from sectors.csv"
+  task :add_sectors => :environment do
+    @admin = User.find_by_name("Alan Miles")
+    lines = File.new('public/data/sectors.csv').readlines
+    header = lines.shift.strip
+    keys = header.split(',')
+    lines.each do |line|
+      params = {}
+      values = line.strip.split(',')
+      keys.each_with_index do |key, i|
+        params[key] = values[i]
+      end
+      Sector.create(params)
+      @sector = Sector.last
+      @sector.update_attribute(:created_by, @admin.id)
+    end
+  end
+  
   desc "Run all import tasks"
-  task :all => [:add_nationalities, :add_currencies, :add_countries]
+  task :all => [:add_nationalities, :add_currencies, :add_countries, :add_sectors]
 end

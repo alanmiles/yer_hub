@@ -12,7 +12,7 @@ class CurrenciesController < ApplicationController
   
   def index
     @title = "Currencies"
-    @currencies = Currency.order("approved, currency")
+    @currencies = Currency.order("approved ASC, currency")
   end
   
   def new

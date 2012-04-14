@@ -36,3 +36,9 @@ Factory.define :country do |country|
   country.association :nationality
   country.association :currency
 end
+
+Factory.define :sector do |sector|
+  sector.sector			"Logistics"
+  sector.created_by		1
+end
+

@@ -9,7 +9,7 @@
     <% @currencies.each do |currency| %>
       <li>
         <%= link_to currency.currency, edit_currency_path(currency) %>
-        (<%= currency.abbreviation %>)
+        <span class="subtext"><i>(<%= currency.abbreviation %>)</i><span>
         <div class="r-float">
           <% unless currency.approved? %>
             <span class="subtext">
