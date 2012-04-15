@@ -1,0 +1,13 @@
+<div class="field">
+  <%= f.label :category, "Absence type *" %>
+  <%= f.text_field :category %>
+</div>
+<div class="field">
+  <%= f.label :abbreviation, "Abbreviation *" %>
+  <div class="subtext">
+    Use 2 letters.
+  </div>
+  <%= f.text_field :abbreviation, :size => 5 %>
+</div>
+
+<%= f.hidden_field :created_by %>

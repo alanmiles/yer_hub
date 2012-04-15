@@ -87,6 +87,24 @@ namespace :import do
     end
   end
   
+  desc "populate database with data from absences.csv"
+  task :add_abscats => :environment do
+    @admin = User.find_by_name("Alan Miles")
+    lines = File.new('public/data/absences.csv').readlines
+    header = lines.shift.strip
+    keys = header.split(';')
+    lines.each do |line|
+      params = {}
+      values = line.strip.split(';')
+      keys.each_with_index do |key, i|
+        params[key] = values[i]
+      end
+      Abscat.create(params)
+      @abscat = Abscat.last
+      @abscat.update_attribute(:created_by, @admin.id)
+    end
+  end
+  
   desc "Run all import tasks"
-  task :all => [:add_nationalities, :add_currencies, :add_countries, :add_sectors, :add_occupations]
+  task :all => [:add_nationalities, :add_currencies, :add_countries, :add_sectors, :add_occupations, :add_abscats]
 end

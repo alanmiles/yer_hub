@@ -47,3 +47,8 @@ Factory.define :occupation do |occupation|
   occupation.created_by		1
 end
 
+Factory.define :abscat do |abscat|
+  abscat.category		"Unpaid leave"
+  abscat.abbreviation		"UL"
+  abscat.created_by		1
+end

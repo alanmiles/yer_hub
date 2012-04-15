@@ -1,0 +1,11 @@
+<%= link_to image_tag("pageback.png", :title => "Absence category list"), abscats_path, :class => "magnify" %>
+<h1><%= link_to @abscat.category, edit_abscat_path(@abscat) %>
+  <span class="subtext">
+    (Click to edit)
+  </span>
+</h1>
+<div id="rubric">
+  Abbreviation: <%= @abscat.abbreviation %><br />
+  Entered by: <%= @creator.name %> <i>(User ID <%= @creator.id %>)</i><br />
+  <strong><%= approve_text.upcase %></strong>
+</div>

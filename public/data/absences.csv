@@ -1,0 +1,27 @@
+category;abbreviation;approved;created_by
+Absent – no reason given;AB;TRUE;1
+Assignment outside office;AS;TRUE;1
+Business trip;BT;TRUE;1
+Compensatory off-day;CS;TRUE;1
+Conference;CN;TRUE;1
+Court attendance;CT;TRUE;1
+Death – immediate family;D1;TRUE;1
+Death – more distant relative;D2;TRUE;1
+Death – mourning leave;DM;TRUE;1
+Emergency leave;EM;TRUE;1
+Examination day;EX;TRUE;1
+Family reasons / care;FM;TRUE;1
+Hajj Leave;HJ;TRUE;1
+Marriage;MG;TRUE;1
+Maternity leave – paid;MT;TRUE;1
+Maternity leave – unpaid;MU;TRUE;1
+Other approved – paid;AP;TRUE;1
+Paternity leave;PT;TRUE;1
+Sickness – full pay;SF;TRUE;1
+Sickness – half pay;SH;TRUE;1
+Sickness – zero pay;SZ;TRUE;1
+Study leave;ST;TRUE;1
+Suspension from work;XS;TRUE;1
+Training day;TR;TRUE;1
+Unpaid leave (planned);UL;TRUE;1
+Workplace injury;SI;TRUE;1

@@ -8,6 +8,7 @@ YerHub::Application.routes.draw do
   resources :countries
   resources :sectors
   resources :occupations
+  resources :abscats
   
   match '/signup',  	:to => 'users#new'
   match '/signin',  	:to => 'sessions#new'

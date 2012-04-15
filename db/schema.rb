@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120414115059) do
+ActiveRecord::Schema.define(:version => 20120414174604) do
+
+  create_table "abscats", :force => true do |t|
+    t.string   "category"
+    t.string   "abbreviation"
+    t.boolean  "approved",     :default => false
+    t.integer  "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "countries", :force => true do |t|
     t.string   "country"

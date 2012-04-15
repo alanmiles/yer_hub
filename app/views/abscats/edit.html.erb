@@ -1,0 +1,22 @@
+<%= link_to image_tag("pageback.png", :title => "Previous"), @abscat, :class => "magnify" %>
+
+<%= form_for(@abscat) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  
+  <%= render 'fields', :f => f %>
+  
+  
+   
+  
+  <div class="field">
+    <% if @abscat.approved? %>
+      <%= f.label :approved, "Uncheck to remove approval" %>
+    <% else %>
+      <%= f.label :approved, "Check to approve" %>
+    <% end %>    
+    <%= f.check_box :approved %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update Absence Type", :class => "create round" %>
+  </div>
+<% end %>
