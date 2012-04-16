@@ -1,0 +1,34 @@
+<div class="field">
+  <%= f.label :country_id, "Country *" %><br />
+  <%= collection_select(:insurancerule, :country_id, @countries, :id, 
+                        :country, :prompt => true) %>
+</div>
+
+<div class="field">
+  <%= f.label :salary_ceiling, "Maximum monthly salary *" %>
+  <div class="subtext">
+    Insurance is charged on total salary (+ designated benefits up to this amount.
+    The balance of the salary is credited for indemnity
+  </div>
+  <%= f.text_field :salary_ceiling %>
+</div>
+
+<div class="field">
+   <%= f.label :startend_prorate, "Check if insurance deductions are prorated for joiners/leavers *" %>  
+   <%= f.check_box :startend_prorate %>
+   <div class="subtext">
+      i.e. if the employee joins or leaves midway through the month, the insurance deduction is based on the 
+      proportion of the month actually worked.  Uncheck if the employee pays the whole monthly amount dependent
+      on the date of joining/leaving (as specified below).
+  </div>
+</div>
+ 
+
+<div class="field">
+  <%= f.label :startend_date, "Day of the month used to determine whether insurance is paid *" %>
+  <div class="subtext">
+    Only applicable if the check-box above is unchecked.  People who join after this day or leave before this day will not be charged
+  </div>
+  <%= f.text_field :startend_date, :size => 5 %>
+</div>
+

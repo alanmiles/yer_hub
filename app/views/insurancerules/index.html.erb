@@ -1,0 +1,35 @@
+<%= link_to image_tag("pageback.png", :title => "Admin home"), admin_home_path, :class => "magnify" %>
+<div class="r-float">
+  <%= link_to "Add insurance rules for another country", new_insurancerule_path %>
+</div>
+
+<div id="listing">
+  
+  <ul class="no_dec"> 
+    <% @countries.each do |country| %>
+      <li>
+        <%= link_to country.country, edit_insurancerule_path(country.insurancerule.id) %>
+        <div class="r-float">
+          <%= link_to image_tag("delete.png"), country.insurancerule, :method => :delete, :confirm => "Are you sure you want to delete the insurance
+                               rule for '#{country.country}'?",
+                                :title => "Delete rule for '#{country.country}'" %>
+        </div>
+        <div class="subtext under">
+           <% if country.insurancerule.salary_ceiling == 1000000 %>
+             Insurance calculations are based on the full monthly salary (+ designated benefits).
+           <% else %>
+             Insurance is calculated only on the first <%= country.currency.abbreviation %> <%= country.insurancerule.salary_ceiling %>
+             of the monthly salary.  Anything above this amount earns indemnity.
+           <% end %><br /><br />
+           <% if country.insurancerule.startend_prorate? %>
+             If people join or leave in mid-month, insurance deduction is based on the proportion of the month actually worked.
+           <% else %>
+             People who join before or leave after Day <%= country.insurancerule.startend_date %> of the month have the full monthly insurance deduction;
+             otherwise nothing is deducted.
+           <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  
+</div>

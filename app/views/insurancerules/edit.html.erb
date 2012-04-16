@@ -1,0 +1,11 @@
+<%= link_to image_tag("pageback.png", :title => "Previous"), @insurancerule, :class => "magnify" %>
+
+<%= form_for(@insurancerule) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  
+  <%= render 'fields', :f => f %>
+  
+  <div class="actions">
+    <%= f.submit "Update Insurance Rule", :class => "create round" %>
+  </div>
+<% end %>

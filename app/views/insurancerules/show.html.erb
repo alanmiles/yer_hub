@@ -1,0 +1,20 @@
+<%= link_to image_tag("pageback.png", :title => "Insurance rules list"), insurancerules_path, :class => "magnify" %>
+<h1><%= link_to @insurancerule.country.country, edit_insurancerule_path(@insurancerule) %>
+  <span class="subtext">
+    (Click to edit)
+  </span>
+</h1>
+<div id="rubric">
+  <% if @insurancerule.salary_ceiling == 1000000 %>
+     Insurance calculations are based on the full monthly salary (+ designated benefits).
+  <% else %>
+     Insurance is calculated only on the first <%= @insurancerule.country.currency.abbreviation %> <%= @insurancerule.salary_ceiling %>
+     of the monthly salary.  Anything above this amount earns indemnity.
+  <% end %><br /><br />
+  <% if @insurancerule.startend_prorate? %>
+     If people join or leave in mid-month, insurance deduction is based on the proportion of the month actually worked.
+  <% else %>
+     People who join before or leave after Day <%= @insurancerule.startend_date %> of the month have the full monthly insurance deduction;
+     otherwise nothing is deducted.
+  <% end %>
+</div>

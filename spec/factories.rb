@@ -52,3 +52,7 @@ Factory.define :abscat do |abscat|
   abscat.abbreviation		"UL"
   abscat.created_by		1
 end
+
+Factory.define :insurancerule do |insurancerule|
+  insurancerule.association :country
+end
