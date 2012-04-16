@@ -30,8 +30,12 @@ class Country < ActiveRecord::Base
     @insurancerules.each do |i|
       already_taken << i.country_id
     end 
-    countries_table = Arel::Table.new(:countries)
-    self.where(countries_table[:id].not_in already_taken).order("country")
+    if already_taken.count == 0 
+      self.order("country")
+    else
+      countries_table = Arel::Table.new(:countries)
+      self.where(countries_table[:id].not_in already_taken).order("country")
+    end
   end
   
   def self.list_excluding_insrules_taken_except(current)

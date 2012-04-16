@@ -309,6 +309,13 @@ describe InsurancerulesController do
       end
   
       describe "GET 'new'" do
+      
+        before(:each) do
+          @nationality = Factory(:nationality)
+          @currency = Factory(:currency)
+          @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)  
+        end
+          
         it "should be successful" do
           get :new
           response.should be_success
@@ -322,6 +329,12 @@ describe InsurancerulesController do
         it "should offer select options to specify the insurance rule country" do
           get :new
           response.should have_selector("select", :name => "insurancerule[country_id]")
+        end
+        
+        it "should include in the select list countries with rules not set" do
+          get :new
+          @country = Country.first
+          response.should have_selector("option", :value => @country.id.to_s)
         end
         
         it "should exclude countries with rules already set from the select list"
