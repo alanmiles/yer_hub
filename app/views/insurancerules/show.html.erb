@@ -1,9 +1,11 @@
-<%= link_to image_tag("pageback.png", :title => "Insurance rules list"), insurancerules_path, :class => "magnify" %>
-<h1><%= link_to @insurancerule.country.country, edit_insurancerule_path(@insurancerule) %>
-  <span class="subtext">
-    (Click to edit)
-  </span>
-</h1>
+<%= link_to image_tag("pageback.png", :title => "Back to all countries"), countries_path, :class => "magnify" %>
+<h1>Social insurance: <%= @insurancerule.country.country %></h1>
+
+<div class="r-float">
+  <%= link_to "Edit", edit_insurancerule_path(@insurancerule) %>
+</div>
+<h2 class="shallow">Rules</h2>
+
 <div id="rubric">
   <% if @insurancerule.salary_ceiling == 1000000 %>
      Insurance calculations are based on the full monthly salary (+ designated benefits).
@@ -17,4 +19,52 @@
      People who join before or leave after Day <%= @insurancerule.startend_date %> of the month have the full monthly insurance deduction;
      otherwise nothing is deducted.
   <% end %>
+  
+</div>
+
+<div class="r-float under">
+  <%= link_to "Add insurance rates", new_country_insurancerate_path(@insurancerule.country_id) %>
+</div>
+<h2 class="under">Rates</h2>
+
+<div class="subtext">
+  <table>
+    <tr>
+      <th></th>
+      <th colspan = "2" class="mainhead">MONTHLY SALARY</th>
+      <th colspan = "2" class="mainhead">EMPLOYER CONTRIBUTION</th>
+      <th colspan = "2" class="mainhead">EMPLOYEE CONTRIBUTION</th>
+      <th></th>
+    </tr>  
+    <tr>
+      <th></th>
+      <th class="subhead">From</th>
+      <th class="subhead">To</th>
+      <th class="subhead">Nationals</th>
+      <th class="subhead">Expats</th>
+      <th class="subhead">Nationals</th>
+      <th class="subhead">Expats</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @insurancerates.each do |ir| %>
+    <tr>
+      <td class="centralize"><%= link_to image_tag("select.png"), edit_insurancerate_path(ir), :title => "Edit" %></td> 
+      <% if ir.low_salary == 0 && ir.high_salary == 1000000 %>
+        <td colspan = "2" class="control centralize">All employees</td>
+      <% else %>
+        <td class="control centralize"><%= ir.low_salary %></td>
+        <td class="control centralize"><%= ir.high_salary %></td>
+      <% end %>
+      <td class="control centralize"><%= ir.employer_nats %>%</td>
+      <td class="control centralize"><%= ir.employer_expats %>%</td>
+      <td class="control centralize"><%= ir.employee_nats %>%</td>
+      <td class="control centralize"><%= ir.employee_expats %>%</td>
+      <td class="centralize"><%= link_to image_tag("delete.png"), ir, :method => :delete, 
+                         :confirm => "Are you sure you want to delete this set of rates for '#{ir.country.country}'?",
+                         :title => "Delete selected rates for '#{ir.country.country}'" %>
+      </td>     
+    </tr>
+    <% end %>  
+  </table>
 </div>

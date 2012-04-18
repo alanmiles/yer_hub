@@ -1,14 +1,10 @@
-<div class="field">
-  <%= f.label :country_id, "Country *" %><br />
-  <%= collection_select(:insurancerule, :country_id, @countries, :id, 
-                        :country, :prompt => true) %>
-</div>
+
 
 <div class="field">
   <%= f.label :salary_ceiling, "Maximum monthly salary *" %>
   <div class="subtext">
     Insurance is charged on total salary (+ designated benefits up to this amount.
-    The balance of the salary is credited for indemnity
+     The balance of the salary is credited for indemnity
   </div>
   <%= f.text_field :salary_ceiling %>
 </div>

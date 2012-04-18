@@ -1,0 +1,30 @@
+<div class="field under">
+  Salary range * <br />
+  <%= f.label :low_salary, "From " %>
+  <%= f.text_field :low_salary, :size => 10 %>
+  <%= f.label :high_salary, "to " %>
+  <%= f.text_field :high_salary, :size => 10 %>
+</div>
+<div class="subtext">
+  Lower and upper range of salary to which these rates apply.  If the range is unlimited, enter 0 and 1000000.
+</div> 
+<div class="field under">
+  Percentage of monthly salary for social insurance
+</div>
+<div class="field">    
+  <%= f.label :employer_nats, "Employer contribution for nationals *" %>
+  <div class="r-float"><%= f.text_field :employer_nats, :size => 3 %>%</div>
+</div>
+<div class = "field">
+  <%= f.label :employer_expats, "Employer contribution for expats *" %>
+  <div class="r-float"><%= f.text_field :employer_expats, :size => 3 %>%</div>
+</div>
+<div class="field">
+  <%= f.label :employee_nats, "National employees' contribution *" %>
+  <div class="r-float"><%= f.text_field :employee_nats, :size => 3 %>%</div>
+</div>
+<div class="field">
+  <%= f.label :employee_expats, "Expat employees' contribution *" %>
+  <div class="r-float"><%= f.text_field :employee_expats, :size => 3 %>%</div>
+</div>
+

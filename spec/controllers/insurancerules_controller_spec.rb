@@ -4,67 +4,17 @@ describe InsurancerulesController do
 
   render_views
   
+  before(:each) do
+    @nationality = Factory(:nationality, :nationality => "Greenish")
+    @currency = Factory(:currency, :currency => "Greenback", :abbreviation => "GRN")
+    @country = Factory(:country, :country => "Gronland", :nationality_id => @nationality.id, :currency_id => @currency.id)  
+    @insurancerule = Insurancerule.find_by_country_id(@country.id)
+  end
+  
   describe "for non-logged-in users" do
-     
-    describe "GET 'index'" do
-      it "should_not be successful" do
-        get :index
-        response.should_not be_success
-      end
-      
-      it "should redirect to the login path" do
-        get :index
-        response.should redirect_to signin_path
-      end
-    end
-    
-    describe "GET 'new'" do
-      it "should not be successful" do
-        get :new
-        response.should_not be_success
-      end
-      
-      it "should redirect to the login path" do
-        get :new
-        response.should redirect_to signin_path
-      end
-    end
-    
-    describe "POST 'create'" do
-    
-      before(:each) do
-        @nationality = Factory(:nationality, :nationality => "Pakistani") 
-        @currency = Factory(:currency, :currency => "Rupee", :abbreviation => "PRP")
-        @country = Factory(:country, :country => "Pakistan", :nationality_id => @nationality.id, :currency_id => @currency.id)
-        @attr = { :country_id => @country.id }
-      end
-
-      it "should not create a new insurance rule" do
-        lambda do
-          post :create, :insurancerule => @attr
-        end.should_not change(Insurancerule, :count)
-      end
-    
-      it "should redirect to the home page" do
-        post :create, :insurancerule => @attr
-        response.should redirect_to root_path
-      end
-      
-      it "should issue a warning message" do
-        post :create, :insurancerule => @attr
-        flash[:warning].should =~ /not authorized/i
-      end
-    end
-    
-    before(:each) do
-      @nationality = Factory(:nationality)
-      @currency = Factory(:currency)
-      @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)  
-      @insurancerule = Factory(:insurancerule, :country_id => @country.id)
-    end
     
     describe "GET 'show'" do
-    
+        
       it "should not be successful" do
         get :show, :id => @insurancerule
         response.should_not be_success
@@ -109,20 +59,6 @@ describe InsurancerulesController do
         response.should redirect_to root_path
       end
     end
-    
-    describe "DELETE 'destroy'" do
-      
-      it "should protect the insurance rule" do
-        lambda do
-          delete :destroy, :id => @insurancerule
-        end.should_not change(Insurancerule, :count)
-      end
-                   
-      it "should redirect to the home page path" do
-        delete :destroy, :id => @insurancerule
-        response.should redirect_to root_path
-      end
-    end
   end
   
   describe "for logged-in users" do
@@ -134,54 +70,6 @@ describe InsurancerulesController do
         test_sign_in(@user)
       end
     
-      describe "GET 'index'" do
-        it "should not be successful" do
-          get :index
-          response.should_not be_success
-        end
-      end
-      
-      describe "GET 'new'" do
-        it "should not be successful" do
-          get :new
-          response.should_not be_success
-        end
-      
-        it "should redirect to the home page" do
-          get :new
-          response.should redirect_to root_path
-        end
-      end
-      
-      
-      describe "POST 'create'" do
-        
-        before(:each) do
-          @nationality = Factory(:nationality, :nationality => "Pakistani") 
-          @currency = Factory(:currency, :currency => "Rupee", :abbreviation => "PRP")
-          @country = Factory(:country, :country => "Pakistan", :nationality_id => @nationality.id, :currency_id => @currency.id)
-          @attr = { :country_id => @country.id }
-        end        
-        
-        it "should redirect to the home page" do
-          post :create, :insurancerule => @attr
-          response.should redirect_to root_path
-        end
-      
-        it "should issue a warning message" do
-          post :create, :insurancerule => @attr
-          flash[:warning].should =~ /only available to administrators/i
-        end
-      
-      end
-      
-      before(:each) do
-        @nationality = Factory(:nationality)
-        @currency = Factory(:currency)
-        @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)  
-        @insurancerule = Factory(:insurancerule, :country_id => @country.id)
-      end
-      
       describe "GET 'show'" do  
 
         it "should not be successful" do
@@ -228,25 +116,6 @@ describe InsurancerulesController do
           response.should redirect_to root_path
         end
       end
-      
-      describe "DELETE 'destroy'" do
-      
-        it "should protect the insurance rule" do
-          lambda do
-            delete :destroy, :id => @insurancerule
-          end.should_not change(Insurancerule, :count)
-        end
-                   
-        it "should redirect to the root path" do
-          delete :destroy, :id => @insurancerule
-          response.should redirect_to root_path
-        end
-        
-        it "should have a warning message" do
-          delete :destroy, :id => @insurancerule
-          flash[:warning].should =~ /only available to administrators/i 
-        end
-      end
     end
     
     describe "admins" do
@@ -256,150 +125,7 @@ describe InsurancerulesController do
         test_sign_in(@admin)
       end
       
-      describe "GET 'index'" do
-        
-        before(:each) do
-          @nationality = Factory(:nationality)
-          @currency = Factory(:currency)
-          @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)  
-          @insurancerule = Factory(:insurancerule, :country_id => @country.id)
-          @nationality3 = Factory(:nationality, :nationality => "American")
-          @currency3 = Factory(:currency, :currency => "US dollars", :abbreviation => "USD")
-          @country3 = Factory(:country, :country => "USA", :nationality_id => @nationality3.id, :currency_id => @currency3.id)  
-          @insurancerule3 = Factory(:insurancerule, :country_id => @country3.id)
-          @insurancerules = [@insurancerule, @insurancerule3]
-        end
-        
-        it "should be successful" do
-          get :index
-          response.should be_success
-        end
-    
-        it "should have the right title" do
-          get :index
-          response.should have_selector("title", :content => "Insurance rules")
-        end
-        
-        it "should have an element for each insurance rule" do
-          get :index
-          @insurancerules.each do |rule|
-            response.should have_selector("li", :content => rule.country.country)
-          end
-        end
-      
-        it "should have a link to the 'edit' page for each country" do
-          get :index
-          @insurancerules.each do |rule|
-            response.should have_selector("a", :href => edit_insurancerule_path(rule))
-          end        
-        end
-        
-        it "should have a return button to the admin menu" do
-          get :index
-          response.should have_selector("a", :href => admin_home_path)
-        end
-        
-        it "should have a link to the 'new' page" do
-          get :index
-          response.should have_selector("a", :href => new_insurancerule_path)
-        end       
-       
-        it "should include a delete link if the country has never been used"
-        
-      end
-  
-      describe "GET 'new'" do
-      
-        before(:each) do
-          @nationality = Factory(:nationality)
-          @currency = Factory(:currency)
-          @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)  
-        end
-          
-        it "should be successful" do
-          get :new
-          response.should be_success
-        end
-    
-        it "should have the right title" do
-          get :new
-          response.should have_selector("title", :content => "New insurance rule")
-        end
-        
-        it "should offer select options to specify the insurance rule country" do
-          get :new
-          response.should have_selector("select", :name => "insurancerule[country_id]")
-        end
-        
-        it "should include in the select list countries with rules not set" do
-          get :new
-          @country = Country.first
-          response.should have_selector("option", :value => @country.id.to_s)
-        end
-        
-        it "should exclude countries with rules already set from the select list"
-      end
-      
-      describe "POST 'create'" do
-
-        describe "failure" do
-
-          before(:each) do
-            @attr = { :country_id => nil }
-          end
-
-          it "should not create an insurance rule" do
-            lambda do
-              post :create, :insurancerule => @attr
-            end.should_not change(Insurancerule, :count)
-          end
-
-          it "should have the right title" do
-            post :create, :insurancerule => @attr
-            response.should have_selector("title", :content => "New insurance rule")
-          end
-
-          it "should render the 'new' page" do
-            post :create, :insurancerule => @attr
-            response.should render_template('new')
-          end
-        end
-      end
-      
-      describe "success" do
-
-        before(:each) do
-          @nationality = Factory(:nationality)
-          @currency = Factory(:currency)
-          @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)
-          @attr = { :country_id => @country.id }
-        end
-
-        it "should create an insurance rule" do
-          lambda do
-            post :create, :insurancerule => @attr
-          end.should change(Insurancerule, :count).by(1)
-        end
-      
-        it "should redirect to the insurance rule show page" do
-          post :create, :insurancerule => @attr
-          response.should redirect_to(insurancerule_path(assigns(:insurancerule)))
-        end
-      
-        it "should have a success message" do
-          post :create, :insurancerule => @attr
-          flash[:success].should =~ /added a new insurance rule/i
-        end    
-      end    
-    
       describe "GET 'show'" do
-    
-        before(:each) do
-          @nationality = Factory(:nationality)
-          @currency = Factory(:currency)
-          @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)  
-          @insurancerule = Factory(:insurancerule, :country_id => @country.id)
-        end
 
         it "should be successful" do
           get :show, :id => @insurancerule
@@ -413,7 +139,7 @@ describe InsurancerulesController do
     
         it "should have the right title" do
           get :show, :id => @insurancerule
-          response.should have_selector("title", :content => "Insurance rule")
+          response.should have_selector("title", :content => "Insurance")
         end
         
         it "should have a link to the insurance rule's edit page" do
@@ -421,20 +147,68 @@ describe InsurancerulesController do
           response.should have_selector("a", :href => edit_insurancerule_path(@insurancerule))
         end
         
-        it "should have a link to the insurance rule list" do
+        it "should have a link to the countries list page" do
           get :show, :id => @insurancerule
-          response.should have_selector("a", :href => insurancerules_path)
+          response.should have_selector("a", :href => countries_path)
         end
+        
+        describe "showing insurance rates values" do
+          
+          describe "for the country selected" do
+        
+            before(:each) do
+              @insurancerate = Factory(:insurancerate, :country_id => @country.id)
+              @insurancerate2 = Factory(:insurancerate, :country_id => @country.id, :low_salary => 4000, 
+               	:high_salary => 6000, :employer_nats => 13, :employee_nats => 8 )
+              @insurancerates = [@insurancerate, @insurancerate2]
+            end
+        
+            it "should have an element for each rate" do
+              get :show, :id => @insurancerule
+              @insurancerates.each do |rate|
+                response.should have_selector("td", :content => rate.high_salary.to_s)
+              end
+            end
+      
+            it "should have a link to the 'edit' page for each insurance rate" do
+              get :show, :id => @insurancerule
+              @insurancerates.each do |rate|
+                response.should have_selector("a", :href => edit_insurancerate_path(rate.id))
+              end        
+            end
+        
+            it "should have a link to the 'new' insurance rate page" do
+              get :show, :id => @insurancerule
+              response.should have_selector("a", :href => new_country_insurancerate_path(@country))
+            end       
+        
+          end	
+        
+          describe "where insurance rates are not from the selected country" do
+        
+            before(:each) do
+              @nationality2 = Factory(:nationality, :nationality => "British")
+              @currency2 = Factory(:currency, :currency => "Pound Sterling", :abbreviation => "GBP")
+              @country2 = Factory(:country, :country => "United Kingdom", :currency_id => @currency2.id, :nationality_id => @nationality2.id) 
+          
+              @insurancerate = Factory(:insurancerate, :country_id => @country2)
+              @insurancerate2 = Factory(:insurancerate, :country_id => @country2.id, :low_salary => 4000, 
+             	:high_salary => 6000, :employer_nats => 13, :employee_nats => 8 )
+              @insurancerates = [@insurancerate, @insurancerate2]
+            end
+          
+            it "should have not have an element for each rate" do
+              get :show, :id => @insurancerule
+              @insurancerates.each do |rate|
+                response.should_not have_selector("td", :content => rate.low_salary.to_s)
+              end
+            end
+          end 
+        end
+        
       end
       
       describe "GET 'edit'" do
-
-        before(:each) do
-          @nationality = Factory(:nationality)
-          @currency = Factory(:currency)
-          @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)  
-          @insurancerule = Factory(:insurancerule, :country_id => @country.id)
-        end
 
         it "should be successful" do
           get :edit, :id => @insurancerule
@@ -446,13 +220,11 @@ describe InsurancerulesController do
           response.should have_selector("title", :content => "Edit insurance rule")
         end
 
-        it "should permit changes to the insurance rule country" do
+        it "should not permit changes to the insurance rule country" do
           get :edit, :id => @insurancerule
-          response.should have_selector("select", :name => "insurancerule[country_id]")
+          response.should_not have_selector("select", :name => "insurancerule[country_id]")
         end
          
-        it "should exclude countries with rules already set - except the current country - from the list"
-
         it "should permit changes to the salary ceiling" do
           get :edit, :id => @insurancerule
           response.should have_selector("input", :name => "insurancerule[salary_ceiling]")
@@ -476,17 +248,10 @@ describe InsurancerulesController do
       
       describe "PUT 'update'" do
 
-        before(:each) do
-          @nationality = Factory(:nationality)
-          @currency = Factory(:currency)
-          @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)  
-          @insurancerule = Factory(:insurancerule, :country_id => @country.id)
-        end
-
         describe "failure" do
 
           before(:each) do
-            @attr = { :country_id => nil }
+            @attr = { :startend_date => 0 }
           end
 
           it "should render the 'edit' page" do
@@ -499,13 +264,6 @@ describe InsurancerulesController do
             response.should have_selector("title", :content => "Edit insurance rule")
           end
           
-          it "should renew the list of countries to set for insurance rules" do
-            get :update, :id => @insurancerule, :insurancerule => @attr
-            response.should have_selector("select", :name => "insurancerule[country_id]")
-          end
-         
-          it "should exclude countries with rules already set - except the current country - from the list"
-
         end
 
         describe "success" do
@@ -514,13 +272,13 @@ describe InsurancerulesController do
             @nationality2 = Factory(:nationality, :nationality => "British")
             @currency2 = Factory(:currency, :currency => "Pound Sterling", :abbreviation => "GBP")
             @country2 = Factory(:country, :country => "United Kingdom", :currency_id => @currency2.id, :nationality_id => @nationality2.id) 
-            @attr = { :country_id => @country2.id}
+            @attr = { :salary_ceiling => 40000}
           end
 
           it "should change the insurance rule's attributes" do
             put :update, :id => @insurancerule, :insurancerule => @attr
             @insurancerule.reload
-            @insurancerule.country_id.should  == @attr[:country_id]
+            @insurancerule.salary_ceiling.should  == 40000
           end
 
           it "should redirect to the insurance rule show page" do
@@ -533,45 +291,6 @@ describe InsurancerulesController do
             flash[:success].should =~ /updated/
           end
         end
-      end
-      
-      describe "DELETE 'destroy'" do
-      
-        before(:each) do
-          @nationality = Factory(:nationality)
-          @currency = Factory(:currency)
-          @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)  
-          @insurancerule = Factory(:insurancerule, :country_id => @country.id)
-        end
-      
-        describe "if insurance rule is in use" do
-        
-          it "should protect the insurance"
-          
-          it "should redirect to the insurance rule list"
-          
-          it "should explain why the deletion could not be made"
-          
-        end
-        
-        describe "if insurance rule is unconnected" do
-        
-          it "should destroy the insurance rule" do
-            lambda do
-              delete :destroy, :id => @insurancerule
-            end.should change(Insurancerule, :count).by(-1)
-          end
-                   
-          it "should confirm the deletion" do
-            delete :destroy, :id => @insurancerule
-            flash[:success].should =~ /successfully removed/i
-          end
-          
-          it "should redirect to the insurance rule list" do
-            delete :destroy, :id => @insurancerule
-            response.should redirect_to insurancerules_path
-          end
-        end      
       end
     end
   end

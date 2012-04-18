@@ -334,6 +334,12 @@ describe CountriesController do
             post :create, :country => @attr
           end.should change(Country, :count).by(1)
         end
+        
+        it "should create associated insurance rules" do
+          post :create, :country => @attr
+          @country = Country.last
+          @country.insurancerule.should be_valid
+        end
       
         it "should redirect to the country index" do
           post :create, :country => @attr
@@ -461,6 +467,12 @@ describe CountriesController do
           it "should confirm the deletion" do
             delete :destroy, :id => @country
             flash[:success].should =~ /successfully removed/i
+          end
+          
+          it "should no longer have a valid insurance rule" do
+            lambda do
+              delete :destroy, :id => @country
+            end.should change(Insurancerule, :count).by(-1)
           end
           
           it "should redirect to the country list" do

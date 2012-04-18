@@ -5,11 +5,13 @@ YerHub::Application.routes.draw do
   resources :currencies
   resources :notes
   resources :nationalities
-  resources :countries
+  resources :countries do
+    resources :insurancerules, :only => [:show, :edit, :update], :shallow => true
+    resources :insurancerates, :only => [:new, :create, :edit, :update, :destroy], :shallow => true
+  end
   resources :sectors
   resources :occupations
   resources :abscats
-  resources :insurancerules
   
   match '/signup',  	:to => 'users#new'
   match '/signin',  	:to => 'sessions#new'

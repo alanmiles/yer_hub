@@ -1,0 +1,13 @@
+<%= link_to image_tag("pageback.png", :title => "Previous"), 
+     country_insurancerates_path(@insurancerate.country_id), :class => "magnify" %>
+
+<h1><%= link_to @insurancerate.country.country.upcase, edit_insurancerate_path(@insurancerate) %>
+  <span class="subtext">
+    (Click to edit)
+  </span>
+</h1>
+<div id="rubric">
+  Monthly salary ranging from <%= @insurancerate.low_salary %> to <%= @insurancerate.high_salary %>
+  Employer contributions:  For Nationals: <%= @insurancerate.employer_nats %>% - for Expats: <%= @insurancerate.employer_expats %>% 
+  Employee contributions:  For Nationals: <%= @insurancerate.employee_nats %>% - for Expats: <%= @insurancerate.employee_expats %>%
+</div>

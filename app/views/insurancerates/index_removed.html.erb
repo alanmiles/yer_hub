@@ -1,0 +1,25 @@
+<%= link_to image_tag("pageback.png", :title => "Admin home"), admin_home_path, :class => "magnify" %>
+<div class="r-float">
+  <%= link_to "Add an insurance rate", new_country_insurancerate_path(@country) %>
+</div>
+<h1><%= @country.country %></h1>
+<div id="listing">
+  
+  <ul class="no_dec"> 
+    <% @insurancerates.each do |rate| %>
+      <li>
+        Salaries from <%= rate.country.currency.abbreviation %> <%= rate.low_salary %> to
+          <%= rate.country.currency.abbreviation %> <%= rate.high_salary %>
+        <%= link_to "Edit", edit_insurancerate_path(rate) %>
+        <div class="r-float">
+          <%= link_to image_tag("delete.png"), rate, :method => :delete, 
+                         :confirm => "Are you sure you want to delete this set of rates for '#{rate.country.country}'?",
+                         :title => "Delete selected rates for '#{rate.country.country}'" %>
+        </div>
+        Employer contributions: Nationals: <%= rate.employer_nats %>  Expats: <%= rate.employer_expats %><br />
+        Employee contributions: Nationals: <%= rate.employee_nats %>  Expats: <%= rate.employee_expats %>
+      </li>
+    <% end %>
+  </ul>
+  
+</div>

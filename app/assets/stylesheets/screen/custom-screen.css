@@ -173,6 +173,10 @@ h2 {
   font-weight: bold;
 }
 
+h2.shallow {
+  margin-bottom: 0; 
+}
+
 .smallnote {
   padding-left: 15px;
   font-size: 70%;
@@ -1071,6 +1075,19 @@ th.centralize {
   text-align: center;
 }
 
+/* used */
+th.mainhead {
+  font-size: 80%;
+}
+
+/* used */
+th.subhead {
+  font-size: 75%;
+  font-weight: normal;
+  font-style: italic;
+}  
+
+
 td.main {
   width: 70%;
   padding: 1em;
@@ -1083,10 +1100,12 @@ td.sidebar {
   background: #ffc;
 }
 
+/* used */
 td.control {
   font-size: 0.85em;
 }
 
+/* used */
 td.centralize {
   text-align: center;
 }

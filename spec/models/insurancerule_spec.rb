@@ -19,11 +19,11 @@ describe Insurancerule do
     @nationality = Factory(:nationality)
     @currency = Factory(:currency)
     @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)
-    @attr =   { :country_id => @country.id } 
+    @attr =   { :salary_ceiling => 4000 } 
   end
 
-  it "should create a new instance given valid attributes" do
-    Insurancerule.create!(@attr)
+  it "should have an insurance rule as soon as the country is created" do
+    @country.insurancerule.should be_valid
   end
 
   it "should require a country_id" do
@@ -59,19 +59,6 @@ describe Insurancerule do
   it "should not have a startend_date < 1" do
     small_startend_rule = Insurancerule.new(@attr.merge(:startend_date => 0))
     small_startend_rule.should_not be_valid
-  end
-  
-  describe "duplication" do
-  
-    before(:each) do
-      Insurancerule.create!(@attr)
-    end
-  
-    it "should not have a duplicate country" do
-      duplicate_rule = Insurancerule.new(@attr.merge(:country_id => @country.id))
-      duplicate_rule.should_not be_valid
-    end
-  
   end
   
 end

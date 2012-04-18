@@ -2,7 +2,7 @@
 
 <%= form_for(@insurancerule) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
-  
+  <h1>Rules for <%= @country.country %></h1|>
   <%= render 'fields', :f => f %>
   
   <div class="actions">

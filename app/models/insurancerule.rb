@@ -17,7 +17,7 @@
 
 class Insurancerule < ActiveRecord::Base
 
-  attr_accessible :country_id, :salary_ceiling, :startend_prorate, :startend_date
+  attr_accessible  :country_id, :salary_ceiling, :startend_prorate, :startend_date
 
   belongs_to :country
   

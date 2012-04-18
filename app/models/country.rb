@@ -14,9 +14,12 @@ class Country < ActiveRecord::Base
 
   attr_accessible :country, :nationality_id, :currency_id
   
+  after_create :build_insurancerule
+  
   belongs_to :nationality
   belongs_to :currency
   has_one :insurancerule, :dependent => :destroy
+  has_many :insurancerates, :dependent => :destroy
   
   validates	:country,		:presence	=> true,
   					:length		=> { :maximum => 50 },
@@ -24,31 +27,11 @@ class Country < ActiveRecord::Base
   validates	:currency_id,		:presence	=> true
   validates	:nationality_id,	:presence 	=> true  
 
-  def self.list_excluding_insrules_taken
-    already_taken = []
-    @insurancerules = Insurancerule.all
-    @insurancerules.each do |i|
-      already_taken << i.country_id
-    end 
-    if already_taken.count == 0 
-      self.order("country")
-    else
-      countries_table = Arel::Table.new(:countries)
-      self.where(countries_table[:id].not_in already_taken).order("country")
-    end
-  end
   
-  def self.list_excluding_insrules_taken_except(current)
-    already_taken = []
-    @insurancerules = Insurancerule.where("country_id != ?", current)
-    @insurancerules.each do |i|
-      already_taken << i.country_id
+  private
+  
+    def build_insurancerule
+      @insurancerule = Insurancerule.new(:country_id => self.id)
+      @insurancerule.save 
     end
-    if already_taken.count == 0 
-      self.order("country")
-    else
-      countries_table = Arel::Table.new(:countries)
-      self.where(countries_table[:id].not_in already_taken).order("country")
-    end
-  end
 end

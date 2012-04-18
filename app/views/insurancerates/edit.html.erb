@@ -1,0 +1,11 @@
+<%= link_to image_tag("pageback.png", :title => "Rule and rates for country"), insurancerule_path(@insurancerule), :class => "magnify" %>
+
+<%= form_for(@insurancerate) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <h1>Social insurance rates for <%= @insurancerate.country.country %></h1>
+  <%= render 'fields', :f => f %>
+  
+  <div class="actions">
+    <%= f.submit "Update Insurance Rates", :class => "create round" %>
+  </div>
+<% end %>

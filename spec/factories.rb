@@ -56,3 +56,13 @@ end
 Factory.define :insurancerule do |insurancerule|
   insurancerule.association :country
 end
+
+Factory.define :insurancerate do |insurancerate|
+  insurancerate.association :country
+  insurancerate.low_salary 	0
+  insurancerate.high_salary	4000
+  insurancerate.employer_nats	11
+  insurancerate.employer_expats	3
+  insurancerate.employee_nats	6
+  insurancerate.employee_expats	0
+end

@@ -15,7 +15,8 @@
         </div>
         <div class="subtext">
            Home nationality: <%= country.nationality.nationality %><br /> 
-           Home currency: <%= country.currency.currency %> <i>(<%= country.currency.abbreviation %>)</i>
+           Home currency: <%= country.currency.currency %> <i>(<%= country.currency.abbreviation %>)</i><br />
+           <%= link_to "Social insurance rules and rates", insurancerule_path(country.insurancerule) %>&nbsp;  
         </div>
       </li>
     <% end %>
