@@ -1,0 +1,39 @@
+<%= link_to image_tag("pageback.png", :title => "Country list"), countries_path, :class => "magnify" %>
+<div class="r-float">
+  <%= link_to "Add gratuity rates", new_country_gratuityrate_path(@country) %>
+</div>
+<h1><%= @country.country %></h1>
+
+
+<div class="subtext">
+  <table>
+    <tr>
+      <th></th>
+      <th colspan = "2" class="mainhead" style="width: 30%">SERVICE YEARS</th>
+      <th colspan = "2" class="mainhead" style="width: 55%">% OF MONTHLY SALARY ACCRUED PER YEAR</th>
+      <th></th>
+    </tr>  
+    <tr>
+      <th></th>
+      <th class="subhead">From</th>
+      <th class="subhead">To</th>
+      <th class="subhead">If resigned</th>
+      <th class="subhead">Leaving for other reasons</th>
+      <th></th>
+    </tr>
+    <% @gratuityrates.each do |gr| %>
+    <tr>
+      <td class="centralize"><%= link_to image_tag("select.png"), edit_gratuityrate_path(gr), :title => "Edit" %></td> 
+      <td class="control centralize"><%= gr.service_years_from %></td>
+      <td class="control centralize"><%= gr.service_years_to %></td>
+      <td class="control centralize"><%= gr.resignation_rate %>%</td>
+      <td class="control centralize"><%= gr.non_resignation_rate %>%</td>
+      <td class="centralize"><%= link_to image_tag("delete.png"), gr, :method => :delete, 
+                         :confirm => "Are you sure you want to delete this set of rates for '#{gr.country.country}'?",
+                         :title => "Delete selected gratuity rates for '#{gr.country.country}'" %>
+      </td>     
+    </tr>
+    <% end %>  
+  </table>
+</div>
+

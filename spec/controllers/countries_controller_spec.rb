@@ -267,6 +267,20 @@ describe CountriesController do
           end        
         end
         
+        it "should have a link to the insurance rules and rates page for each country" do
+          get :index
+          @countries.each do |country|
+            response.should have_selector("a", :href => insurancerule_path(country.insurancerule))
+          end
+        end
+        
+        it "should have a link to the gratuity rates page for each country" do
+          get :index
+          @countries.each do |country|
+            response.should have_selector("a", :href => country_gratuityrates_path(country))
+          end   
+        end
+        
         it "should have a return button to the admin menu" do
           get :index
           response.should have_selector("a", :href => admin_home_path)
@@ -279,6 +293,7 @@ describe CountriesController do
         
         it "should include a delete link if the country has never been used"
         
+        it "should paginate countries"  #complex to test at present
       end
   
       describe "GET 'new'" do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120416133022) do
+ActiveRecord::Schema.define(:version => 20120418180834) do
 
   create_table "abscats", :force => true do |t|
     t.string   "category"
@@ -41,14 +41,24 @@ ActiveRecord::Schema.define(:version => 20120416133022) do
     t.datetime "updated_at"
   end
 
+  create_table "gratuityrates", :force => true do |t|
+    t.integer  "country_id"
+    t.integer  "service_years_from"
+    t.integer  "service_years_to"
+    t.integer  "resignation_rate"
+    t.integer  "non_resignation_rate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "insurancerates", :force => true do |t|
     t.integer  "country_id"
     t.integer  "low_salary"
     t.integer  "high_salary"
-    t.integer  "employer_nats"
-    t.integer  "employer_expats"
-    t.integer  "employee_nats"
-    t.integer  "employee_expats"
+    t.decimal  "employer_nats",   :precision => 4, :scale => 2
+    t.decimal  "employer_expats", :precision => 4, :scale => 2
+    t.decimal  "employee_nats",   :precision => 4, :scale => 2
+    t.decimal  "employee_expats", :precision => 4, :scale => 2
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"

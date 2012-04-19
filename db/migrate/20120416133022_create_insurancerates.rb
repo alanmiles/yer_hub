@@ -4,10 +4,10 @@ class CreateInsurancerates < ActiveRecord::Migration
       t.integer :country_id
       t.integer :low_salary
       t.integer :high_salary
-      t.integer :employer_nats
-      t.integer :employer_expats
-      t.integer :employee_nats
-      t.integer :employee_expats
+      t.decimal :employer_nats, :precision => 4, :scale => 2
+      t.decimal :employer_expats, :precision => 4, :scale => 2
+      t.decimal :employee_nats, :precision => 4, :scale => 2
+      t.decimal :employee_expats, :precision => 4, :scale => 2 
       t.integer :position
 
       t.timestamps

@@ -66,3 +66,13 @@ Factory.define :insurancerate do |insurancerate|
   insurancerate.employee_nats	6
   insurancerate.employee_expats	0
 end
+
+Factory.define :gratuityrate do |gratuityrate|
+  gratuityrate.association :country
+  gratuityrate.service_years_from	3
+  gratuityrate.service_years_to		5
+  gratuityrate.resignation_rate		50
+  gratuityrate.non_resignation_rate	100
+end
+
+

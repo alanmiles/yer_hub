@@ -1,0 +1,20 @@
+<div class="field under">
+  Qualifying service period * <br />
+  <%= f.label :service_years_from, "From " %>
+  <%= f.text_field :service_years_from, :size => 5 %> years
+  <%= f.label :service_years_to, "up to " %>
+  <%= f.text_field :service_years_to, :size => 5 %> years:
+</div>
+
+<div class="field under">
+  Percentage of monthly salary accrued for each year of service:
+</div>
+<div class="field">    
+  <%= f.label :resignation_rate, " ... if the employee resigns *" %><br />
+  <%= f.text_field :resignation_rate, :size => 3 %>%
+</div>
+<div class = "field">
+  <%= f.label :non_resignation_rate, "if the employee leaves for some other reason *" %><br />
+  <%= f.text_field :non_resignation_rate, :size => 3 %>%
+</div>
+

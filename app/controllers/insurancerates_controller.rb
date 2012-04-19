@@ -4,19 +4,6 @@ class InsuranceratesController < ApplicationController
   before_filter :check_legality, :only => [:create, :update, :destroy]
   before_filter :admin_user
   
-  #def show
-  #  @title = "Insurance rate"
-  #  @insurancerate = Insurancerate.find(params[:id])
-  #  @country = Country.find(@insurancerate.country_id)
-  #  @insurancerule = @country.insurancerule
-  #end
-  
-  #def index
-  #  @country = Country.find(params[:country_id])
-  #  @title = "Insurance rates"
-  #  @insurancerates = @country.insurancerates.order("insurancerates.position")
-  #end
-  
   def new
     @country = Country.find(params[:country_id])
     @title = "New insurance rate"
@@ -29,10 +16,10 @@ class InsuranceratesController < ApplicationController
     @insurancerule = @country.insurancerule
     @insurancerate = @country.insurancerates.new(params[:insurancerate])
     if @insurancerate.save
-      flash[:success] = "You have successfully added a new insurance rate"
+      flash[:success] = "You have successfully added new insurance rates"
       redirect_to insurancerule_path(@insurancerule)
     else
-      @title = "New insurance rate for #{@country.country}"
+      @title = "New insurance rate"
       flash[:warning] = "The insurance rate was not added.  Please try again, making sure all required fields are filled."
       render 'new'
     end  

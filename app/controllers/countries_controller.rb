@@ -6,7 +6,7 @@ class CountriesController < ApplicationController
   
   def index
     @title = "Countries"
-    @countries = Country.order("country")
+    @countries = Country.paginate(:page => params[:page]).order("country")
   end
   
   def new

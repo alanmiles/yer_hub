@@ -1,0 +1,10 @@
+<%= link_to image_tag("pageback.png", :title => "All gratuity rates"), country_gratuityrates_path(@country), :class => "magnify" %>
+
+<%= form_for([@country, @gratuityrate]) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  Rates for <%= @country.country.upcase %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit "Create Gratuity Rates", :class => "create round" %>
+  </div>
+<% end %>

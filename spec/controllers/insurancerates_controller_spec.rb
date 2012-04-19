@@ -12,18 +12,6 @@ describe InsuranceratesController do
   
   describe "for non-logged-in users" do
      
-    #describe "GET 'index'" do
-    #  it "should_not be successful" do
-    #    get :index, :country_id => @country.id
-    #    response.should_not be_success
-    #  end
-      
-    #  it "should redirect to the login path" do
-    #    get :index, :country_id => @country.id
-    #    response.should redirect_to signin_path
-    #  end
-    #end
-    
     describe "GET 'new'" do
       it "should not be successful" do
         get :new, :country_id => @country.id
@@ -64,19 +52,6 @@ describe InsuranceratesController do
     before(:each) do
       @insurancerate = Factory(:insurancerate, :country_id => @country.id)
     end
-    
-    #describe "GET 'show'" do
-    
-    #  it "should not be successful" do
-    #    get :show, :id => @insurancerate
-    #    response.should_not be_success
-    #  end
-        
-    #  it "should redirect to the signin page" do
-    #    get :show, :id => @insurancerate
-    #    response.should redirect_to signin_path
-    #  end   
-    #end
     
     describe "GET 'edit'" do
 
@@ -135,13 +110,6 @@ describe InsuranceratesController do
         @user = Factory(:user)
         test_sign_in(@user)
       end
-    
-      #describe "GET 'index'" do
-      #  it "should not be successful" do
-      #    get :index, :country_id => @country.id
-      #    response.should_not be_success
-      #  end
-      #end
       
       describe "GET 'new'" do
         it "should not be successful" do
@@ -179,19 +147,6 @@ describe InsuranceratesController do
       before(:each) do
         @insurancerate = Factory(:insurancerate, :country_id => @country.id)
       end
-      
-      #describe "GET 'show'" do  
-
-      #  it "should not be successful" do
-      #    get :show, :id => @insurancerate
-      #    response.should_not be_success
-      #  end
-        
-      #  it "should redirect to the home page" do
-      #    get :show, :id => @insurancerate
-      #    response.should redirect_to root_path
-      #  end   
-      #end
       
       describe "GET 'edit'" do
 
@@ -253,86 +208,6 @@ describe InsuranceratesController do
         @admin = Factory(:user, :admin => true)
         test_sign_in(@admin)
       end
-      
-      #describe "GET 'index'" do
-      
-      #  describe "for the country selected" do
-        
-      #    before(:each) do
-      #      @insurancerate = Factory(:insurancerate, :country_id => @country.id)
-      #      @insurancerate2 = Factory(:insurancerate, :country_id => @country.id, :low_salary => 4000, 
-      #      	:high_salary => 6000, :employer_nats => 13, :employee_nats => 8 )
-      #      @insurancerates = [@insurancerate, @insurancerate2]
-      #    end
-        
-      #    it "should be successful" do
-      #      get :index, :country_id => @country.id
-      #      response.should be_success
-      #    end
-    
-      #    it "should have the right title" do
-      #      get :index, :country_id => @country.id
-      #      response.should have_selector("title", :content => "Insurance rates")
-      #    end
-        
-      #    it "should have an element for each rate" do
-      #      get :index, :country_id => @country.id
-      #      @insurancerates.each do |rate|
-      #        response.should have_selector("li", :content => rate.high_salary.to_s)
-      #      end
-      #    end
-      
-      #    it "should have a link to the 'edit' page for each insurance rate" do
-      #      get :index, :country_id => @country.id
-      #      @insurancerates.each do |rate|
-      #        response.should have_selector("a", :href => edit_insurancerate_path(rate.id))
-      #      end        
-      #    end
-        
-      #    it "should have a return button to the admin menu" do
-      #      get :index, :country_id => @country.id
-      #      response.should have_selector("a", :href => admin_home_path)
-      #    end
-        
-      #    it "should have a link to the 'new' page" do
-      #      get :index, :country_id => @country.id
-      #      response.should have_selector("a", :href => new_country_insurancerate_path(@country))
-      #    end       
-        
-      #  end	
-        
-      #  describe "where insurance rates are not from the selected country" do
-        
-      #    before(:each) do
-      #      @nationality2 = Factory(:nationality, :nationality => "British")
-      #      @currency2 = Factory(:currency, :currency => "Pound Sterling", :abbreviation => "GBP")
-      #      @country2 = Factory(:country, :country => "United Kingdom", :currency_id => @currency2.id, :nationality_id => @nationality2.id) 
-          
-      #      @insurancerate = Factory(:insurancerate, :country_id => @country2)
-      #      @insurancerate2 = Factory(:insurancerate, :country_id => @country2.id, :low_salary => 4000, 
-      #      	:high_salary => 6000, :employer_nats => 13, :employee_nats => 8 )
-      #      @insurancerates = [@insurancerate, @insurancerate2]
-      #    end
-          
-      #    it "should be successful" do
-      #      get :index, :country_id => @country.id
-      #      response.should be_success
-      #    end
-    
-      #    it "should have the right title" do
-      #      get :index, :country_id => @country.id
-      #      response.should have_selector("title", :content => "Insurance rates")
-      #    end
-        
-      #    it "should have not have an element for each rate" do
-      #      get :index, :country_id => @country.id
-      #      @insurancerates.each do |rate|
-      #        response.should_not have_selector("li", :content => rate.low_salary.to_s)
-      #      end
-      #    end
-      #  end 
-        
-      #end
   
       describe "GET 'new'" do
         it "should be successful" do
@@ -395,42 +270,10 @@ describe InsuranceratesController do
       
         it "should have a success message" do
           post :create, :country_id => @country.id, :insurancerate => @attr
-          flash[:success].should =~ /added a new insurance rate/i
+          flash[:success].should =~ /added new insurance rates/i
         end    
       end    
     
-     # describe "GET 'show'" do
-    
-     #   before(:each) do
-     #     @insurancerate = Factory(:insurancerate, :country_id => @country.id)
-     #   end
-
-     #   it "should be successful" do
-     #     get :show, :id => @insurancerate
-     #     response.should be_success
-     #   end
-
-     #   it "should find the right insurance rate" do
-     #     get :show, :id => @insurancerate
-     #     assigns(:insurancerate).should == @insurancerate
-     #   end
-    
-     #   it "should have the right title" do
-     #     get :show, :id => @insurancerate
-     #     response.should have_selector("title", :content => "Insurance rate")
-     #   end
-        
-     #   it "should have a link to the insurance rate's edit page" do
-     #     get :show, :id => @insurancerate
-     #     response.should have_selector("a", :href => edit_insurancerate_path(@insurancerate))
-     #   end
-        
-     #   it "should have a link to the insurance rate list" do
-     #     get :show, :id => @insurancerate
-     #     response.should have_selector("a", :href => country_insurancerates_path(@insurancerate.country_id))
-     #   end
-     # end
-      
       describe "GET 'edit'" do
 
         before(:each) do

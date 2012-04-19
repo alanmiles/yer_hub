@@ -6,10 +6,10 @@
 #  country_id      :integer
 #  low_salary      :integer
 #  high_salary     :integer
-#  employer_nats   :integer
-#  employer_expats :integer
-#  employee_nats   :integer
-#  employee_expats :integer
+#  employer_nats   :decimal(4, 2)
+#  employer_expats :decimal(4, 2)
+#  employee_nats   :decimal(4, 2)
+#  employee_expats :decimal(4, 2)
 #  position        :integer
 #  created_at      :datetime
 #  updated_at      :datetime
@@ -29,14 +29,18 @@ class Insurancerate < ActiveRecord::Base
   					:numericality		=> { :only_integer => true, :allow_zero => true }
   validates	:high_salary,		:presence 		=> true,
   					:uniqueness		=> { :scope => :country_id },
-  					:numericality		=> { :only_integer => true } 
+  					:numericality		=> { :only_integer => true, :allow_zero => true }
   validates	:employer_nats,		:presence 		=> true,
-  					:numericality		=> { :only_integer => true }
+  					:numericality		=> true,
+  					:inclusion		=> { :in => 0..99.99 }
   validates	:employer_expats,	:presence 		=> true,
-  					:numericality		=> { :only_integer => true }
+  					:numericality		=> true,
+  					:inclusion		=> { :in => 0..99.99 }
   validates	:employee_nats,		:presence 		=> true,
-  					:numericality		=> { :only_integer => true }
+  					:numericality	 	=> true,
+  					:inclusion		=> { :in => 0..99.99 }
   validates	:employee_expats,	:presence 		=> true,
-  					:numericality		=> { :only_integer => true }
+  					:numericality		=> true,
+  					:inclusion		=> { :in => 0..99.99 }
   
 end

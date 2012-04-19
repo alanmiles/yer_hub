@@ -3,6 +3,9 @@
   <%= link_to "Add a country", new_country_path %>
 </div>
 
+<div class="pagination over">
+  <%= will_paginate %>
+</div>
 <div id="listing">
   
   <ul class="no_dec"> 
@@ -16,10 +19,14 @@
         <div class="subtext">
            Home nationality: <%= country.nationality.nationality %><br /> 
            Home currency: <%= country.currency.currency %> <i>(<%= country.currency.abbreviation %>)</i><br />
-           <%= link_to "Social insurance rules and rates", insurancerule_path(country.insurancerule) %>&nbsp;  
+           <%= link_to "Social insurance rules and rates", insurancerule_path(country.insurancerule) %><br />
+           <%= link_to "Gratuity rates", country_gratuityrates_path(country) %><br />  
         </div>
       </li>
     <% end %>
   </ul>
   
+</div>
+<div class="pagination over">
+  <%= will_paginate %>
 </div>

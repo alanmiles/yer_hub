@@ -6,10 +6,10 @@
 #  country_id      :integer
 #  low_salary      :integer
 #  high_salary     :integer
-#  employer_nats   :integer
-#  employer_expats :integer
-#  employee_nats   :integer
-#  employee_expats :integer
+#  employer_nats   :decimal(4, 2)
+#  employer_expats :decimal(4, 2)
+#  employee_nats   :decimal(4, 2)
+#  employee_expats :decimal(4, 2)
 #  position        :integer
 #  created_at      :datetime
 #  updated_at      :datetime
@@ -62,9 +62,9 @@ describe Insurancerate do
     no_employer_nats.should_not be_valid
   end
   
-  it "should have an integer employer_nats value" do
-    fraction_employer_nats = Insurancerate.new(@attr.merge(:employer_nats => 11.5))
-    fraction_employer_nats.should_not be_valid
+  it "should have not have an employer_nats value > 100" do
+    high_employer_nats = Insurancerate.new(@attr.merge(:employer_nats => 101))
+    high_employer_nats.should_not be_valid
   end
   
   it "should have an employer_expats value" do
@@ -72,9 +72,9 @@ describe Insurancerate do
     no_employer_expats.should_not be_valid
   end
   
-  it "should have an integer employer_expats value" do
-    fraction_employer_expats = Insurancerate.new(@attr.merge(:employer_expats => 5.5))
-    fraction_employer_expats.should_not be_valid
+  it "should not have employer_expats value > 100" do
+    high_employer_expats = Insurancerate.new(@attr.merge(:employer_expats => 101))
+    high_employer_expats.should_not be_valid
   end
   
   it "should have an employee_nats value" do
@@ -82,9 +82,9 @@ describe Insurancerate do
     no_employee_nats.should_not be_valid
   end
   
-  it "should have an integer employee_nats value" do
-    fraction_employee_nats = Insurancerate.new(@attr.merge(:employee_nats => 11.5))
-    fraction_employee_nats.should_not be_valid
+  it "should not have an employee_nats value > 100" do
+    high_employee_nats = Insurancerate.new(@attr.merge(:employee_nats => 101))
+    high_employee_nats.should_not be_valid
   end
  
   it "should have an employee_expats value" do
@@ -92,9 +92,9 @@ describe Insurancerate do
     no_employee_expats.should_not be_valid
   end
   
-  it "should have an integer employee_expats value" do
-    fraction_employee_expats = Insurancerate.new(@attr.merge(:employee_expats => 5.5))
-    fraction_employee_expats.should_not be_valid
+  it "should not have an employee_expats value > 100" do
+    high_employee_expats = Insurancerate.new(@attr.merge(:employee_expats => 101))
+    high_employee_expats.should_not be_valid
   end
   
   it "should have a position auto-set" do

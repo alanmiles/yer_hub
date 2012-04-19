@@ -20,6 +20,7 @@ class Country < ActiveRecord::Base
   belongs_to :currency
   has_one :insurancerule, :dependent => :destroy
   has_many :insurancerates, :dependent => :destroy
+  has_many :gratuityrates, :dependent => :destroy
   
   validates	:country,		:presence	=> true,
   					:length		=> { :maximum => 50 },
