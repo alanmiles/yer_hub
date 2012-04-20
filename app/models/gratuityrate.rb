@@ -6,8 +6,8 @@
 #  country_id           :integer
 #  service_years_from   :integer
 #  service_years_to     :integer
-#  resignation_rate     :integer	percentage of monthly salary to accrue per year of service
-#  non_resignation_rate :integer
+#  resignation_rate     :decimal(5, 2)   percentage of 1 month's salary to accrue per year of service
+#  non_resignation_rate :decimal(5, 2)
 #  created_at           :datetime
 #  updated_at           :datetime
 #
@@ -26,9 +26,9 @@ class Gratuityrate < ActiveRecord::Base
   					:numericality		=> { :only_integer => true },
   					:uniqueness		=> { :scope => :country_id }
   validates	:resignation_rate,	:presence		=> true,
-  					:numericality		=> { :only_integer => true }
+  					:numericality		=> true
    validates	:non_resignation_rate,	:presence		=> true,
-  					:numericality		=> { :only_integer => true }
+  					:numericality		=> true
   						 
   		
   					

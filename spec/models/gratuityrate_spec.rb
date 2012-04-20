@@ -6,8 +6,8 @@
 #  country_id           :integer
 #  service_years_from   :integer
 #  service_years_to     :integer
-#  resignation_rate     :integer
-#  non_resignation_rate :integer
+#  resignation_rate     :decimal(5, 2)
+#  non_resignation_rate :decimal(5, 2)
 #  created_at           :datetime
 #  updated_at           :datetime
 #
@@ -58,9 +58,9 @@ describe Gratuityrate do
     no_resignation.should_not be_valid
   end
   
-  it "should set an integer for 'resignation_rate'" do
-    non_integer_resignation = Gratuityrate.new(@attr.merge(:resignation_rate => 50.5))
-    non_integer_resignation.should_not be_valid
+  it "should set a number for 'resignation_rate'" do
+    text_resignation = Gratuityrate.new(@attr.merge(:resignation_rate => "three"))
+    text_resignation.should_not be_valid
   end 
   
   it "should have a non-resignation rate" do
@@ -68,9 +68,9 @@ describe Gratuityrate do
     no_non_resignation.should_not be_valid
   end 
   
-  it "should set an integer for 'non_resignation_rate'" do
-    non_integer_non_resignation = Gratuityrate.new(@attr.merge(:non_resignation_rate => 50.5))
-    non_integer_non_resignation.should_not be_valid
+  it "should set a number for 'non_resignation_rate'" do
+    text_non_resignation = Gratuityrate.new(@attr.merge(:non_resignation_rate => "four"))
+    text_non_resignation.should_not be_valid
   end 
   
   describe "duplicates" do

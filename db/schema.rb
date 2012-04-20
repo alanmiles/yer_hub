@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(:version => 20120418180834) do
     t.integer  "country_id"
     t.integer  "service_years_from"
     t.integer  "service_years_to"
-    t.integer  "resignation_rate"
-    t.integer  "non_resignation_rate"
+    t.decimal  "resignation_rate",     :precision => 5, :scale => 2
+    t.decimal  "non_resignation_rate", :precision => 5, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
