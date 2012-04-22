@@ -75,4 +75,9 @@ Factory.define :gratuityrate do |gratuityrate|
   gratuityrate.non_resignation_rate	100
 end
 
-
+Factory.define :sicknessallowance do |sicknessallowance|
+  sicknessallowance.association :country
+  sicknessallowance.sick_days_from	15
+  sicknessallowance.sick_days_to	30
+  sicknessallowance.deduction_rate	50
+end

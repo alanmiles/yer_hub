@@ -3,9 +3,13 @@
   <%= f.label :service_years_from, "From " %>
   <%= f.text_field :service_years_from, :size => 5 %> years
   <%= f.label :service_years_to, "up to " %>
-  <%= f.text_field :service_years_to, :size => 5 %> years:
+  <%= f.text_field :service_years_to, :size => 5 %> years
+  <div class="subtext">
+    (You need to enter a value in each box, so if there's no limit on the maximum number of years,
+    enter 100 in the 'up to' box - we're assuming no-one will reach 100 years of service!)
+  </div>
 </div>
-
+<br />
 <div class="field under">
   Percentage of monthly salary accrued for each year of service:
 </div>

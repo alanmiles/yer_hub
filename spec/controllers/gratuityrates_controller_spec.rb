@@ -492,5 +492,4 @@ describe GratuityratesController do
     end
   end
 
-
 end

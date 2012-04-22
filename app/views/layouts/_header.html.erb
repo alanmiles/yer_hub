@@ -12,8 +12,8 @@
       <li><span class="guidance"><%= link_to image_tag("guidance.png"), note_path(note_reference), :title => "Page help", :remote => true %></span></li>
       
       <% if signed_in? %>
-        <li><%= link_to "Your settings", edit_user_path(current_user), 
-          :title => "Change your name, password, profile picture", :class => "create-icon round" %>
+        <li><%= link_to image_tag("user.png"), edit_user_path(current_user), 
+          :title => "Change your name, password, profile picture" %>
         </li>
         <li><%= link_to "Sign out", signout_path, 
               :method => :delete, :class => "create-icon round exit" %></li>

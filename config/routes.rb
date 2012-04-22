@@ -9,6 +9,7 @@ YerHub::Application.routes.draw do
     resources :insurancerules, :only => [:show, :edit, :update], :shallow => true
     resources :insurancerates, :only => [:new, :create, :edit, :update, :destroy], :shallow => true
     resources :gratuityrates, :except => :show, :shallow => true
+    resources :sicknessallowances, :except => :show, :shallow => true
   end
   resources :sectors
   resources :occupations

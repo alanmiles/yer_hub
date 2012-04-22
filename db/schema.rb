@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120418180834) do
+ActiveRecord::Schema.define(:version => 20120421192409) do
 
   create_table "abscats", :force => true do |t|
     t.string   "category"
@@ -98,6 +98,15 @@ ActiveRecord::Schema.define(:version => 20120418180834) do
     t.string   "sector"
     t.boolean  "approved",   :default => false
     t.integer  "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sicknessallowances", :force => true do |t|
+    t.integer  "country_id"
+    t.integer  "sick_days_from"
+    t.integer  "sick_days_to"
+    t.integer  "deduction_rate"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
