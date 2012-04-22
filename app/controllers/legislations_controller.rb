@@ -27,5 +27,5 @@ class LegislationsController < ApplicationController
       render 'edit'
     end
   end
-
+  
 end
