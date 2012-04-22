@@ -1,0 +1,37 @@
+<%= link_to image_tag("pageback.png", :title => "Country list"), countries_path, :class => "magnify" %>
+<div class="r-float">
+  <%= link_to "Add sickness allowances", new_country_sicknessallowance_path(@country) %>
+</div>
+<h1><%= @country.country %></h1>
+
+
+<div class="subtext">
+  <table>
+    <tr>
+      <th></th>
+      <th colspan = "2" class="mainhead" style="width: 30%; border: 1px solid gray">SICKNESS DAYS</th>
+      <th></th>
+      <th></th>
+    </tr>  
+    <tr>
+      <th></th>
+      <th class="subhead" style = "border: 1px dotted gray; vertical-align: middle">From</th>
+      <th class="subhead" style = "border: 1px dotted gray; border-right: 1px solid gray; vertical-align:middle">To</th>
+      <th class="mainhead" style="width: 55%; border: 1px solid gray">% OF DAY'S SALARY <br />DEDUCTED PER DAY</th>
+      <th></th>
+    </tr>
+    <% @sicknessallowances.each do |sa| %>
+    <tr>
+      <td class="centralize"><%= link_to image_tag("select.png"), edit_sicknessallowance_path(sa), :title => "Edit" %></td> 
+      <td class="control centralize" style = "border: 1px dotted gray"><%= sa.sick_days_from %></td>
+      <td class="control centralize" style = "border: 1px dotted gray; border-right: 1px solid gray"><%= sa.sick_days_to %></td>
+      <td class="control centralize" style = "border: 1px dotted gray; border-left: 1px solid gray"><%= sa.deduction_rate %>%</td>
+      <td class="centralize"><%= link_to image_tag("delete.png"), sa, :method => :delete, 
+                         :confirm => "Are you sure you want to delete this sickness allowance for '#{sa.country.country}'?",
+                         :title => "Delete selected sickness allowance for '#{sa.country.country}'" %>
+      </td>     
+    </tr>
+    <% end %>  
+  </table>
+</div>
+

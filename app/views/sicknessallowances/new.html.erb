@@ -1,0 +1,10 @@
+<%= link_to image_tag("pageback.png", :title => "All sickness allowances"), country_sicknessallowances_path(@country), :class => "magnify" %>
+
+<%= form_for([@country, @sicknessallowance]) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  Allowances for <%= @country.country.upcase %>
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit "Create Sickness Allowances", :class => "create round" %>
+  </div>
+<% end %>

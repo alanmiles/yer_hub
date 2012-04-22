@@ -1,0 +1,17 @@
+<div class="field under">
+  Sick days per year * <br />
+  <%= f.label :sick_days_from, "From " %>
+  <%= f.text_field :sick_days_from, :size => 5 %> days
+  <%= f.label :sick_days_to, "up to " %>
+  <%= f.text_field :sick_days_to, :size => 5 %> days
+  <div class="subtext under">
+    (You need to enter a value in each box.  For your highest range, where the entire day's pay is deducted because of the
+    number of sick days, enter <b>up to 365 days</b> - in other words a whole year.  E.g. if sickness is unpaid after 30 days in a year, the values
+    you'd enter would be 30 and 365.)
+  </div>
+</div>
+<br />
+<div class="field under">
+  Percentage of 1 day's salary to <u>deduct</u> for each absence day: *  
+  <%= f.text_field :deduction_rate, :size => 3 %>%
+</div>
