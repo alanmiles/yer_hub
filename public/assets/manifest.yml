@@ -28,9 +28,10 @@ true.png: true-324bd370302c3471cec915c1fea28c09.png
 user.png: user-fefd9ffe8b62ceb3b3bbbc75b4142de4.png
 warning.png: warning-f4d4b844d23db06136150713fa98493a.png
 abscats.js: abscats-ffb0539c1577faf6d298323414833299.js
-application.js: application-0ac6f0bf19a57a4787abb577a5a194b4.js
+application.js: application-7159a763ebcd995102e19e35582814b0.js
 countries.js: countries-ffb0539c1577faf6d298323414833299.js
 currencies.js: currencies-ffb0539c1577faf6d298323414833299.js
+gratuityrates.js: gratuityrates-ffb0539c1577faf6d298323414833299.js
 insurancerates.js: insurancerates-ffb0539c1577faf6d298323414833299.js
 insurancerules.js: insurancerules-ffb0539c1577faf6d298323414833299.js
 nationalities.js: nationalities-ffb0539c1577faf6d298323414833299.js
@@ -39,6 +40,7 @@ occupations.js: occupations-ffb0539c1577faf6d298323414833299.js
 pages.js: pages-ffb0539c1577faf6d298323414833299.js
 sectors.js: sectors-ffb0539c1577faf6d298323414833299.js
 sessions.js: sessions-ffb0539c1577faf6d298323414833299.js
+sicknessallowances.js: sicknessallowances-ffb0539c1577faf6d298323414833299.js
 users.js: users-ffb0539c1577faf6d298323414833299.js
 application-print.css: application-print-f82ad2dec3dd072003b4ba98e3f78a1e.css
 application.css: application-65b5c0e603447f64db1b657c71a618a9.css
