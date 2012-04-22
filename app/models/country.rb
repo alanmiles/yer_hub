@@ -19,6 +19,7 @@ class Country < ActiveRecord::Base
   belongs_to :nationality
   belongs_to :currency
   has_one :insurancerule, :dependent => :destroy
+  has_one :legislation, :dependent => :destroy
   has_many :insurancerates, :dependent => :destroy
   has_many :gratuityrates, :dependent => :destroy
   has_many :sicknessallowances, :dependent => :destroy
@@ -35,5 +36,7 @@ class Country < ActiveRecord::Base
     def build_insurancerule
       @insurancerule = Insurancerule.new(:country_id => self.id)
       @insurancerule.save 
+      @legislation = Legislation.new(:country_id => self.id)
+      @legislation.save
     end
 end

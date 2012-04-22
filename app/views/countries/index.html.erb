@@ -22,7 +22,7 @@
            <%= link_to "Social insurance rules and rates", insurancerule_path(country.insurancerule) %><br />
            <%= link_to "Gratuity rates", country_gratuityrates_path(country) %><br /> 
            <%= link_to "Sickness allowances", country_sicknessallowances_path(country) %><br />
-           <%= link_to "Other employee legislation", "#" %>     
+           <%= link_to "Other employee legislation", legislation_path(country.legislation) %>     
         </div>
       </li>
     <% end %>

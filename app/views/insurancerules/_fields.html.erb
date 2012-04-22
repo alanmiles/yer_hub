@@ -2,11 +2,12 @@
 
 <div class="field">
   <%= f.label :salary_ceiling, "Maximum monthly salary *" %>
+  <%= f.text_field :salary_ceiling, :size => 8 %>
   <div class="subtext">
     Insurance is charged on total salary (+ designated benefits up to this amount.
      The balance of the salary is credited for indemnity
   </div>
-  <%= f.text_field :salary_ceiling %>
+  
 </div>
 
 <div class="field">
@@ -22,9 +23,10 @@
 
 <div class="field">
   <%= f.label :startend_date, "Day of the month used to determine whether insurance is paid *" %>
-  <div class="subtext">
-    Only applicable if the check-box above is unchecked.  People who join after this day or leave before this day will not be charged
-  </div>
   <%= f.text_field :startend_date, :size => 5 %>
+  <div class="subtext">
+    Only applicable if the check-box above is unchecked.  People who join after this day or leave before this day will not be charged.
+  </div>
+  
 </div>
 

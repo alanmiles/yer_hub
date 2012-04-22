@@ -1,0 +1,20 @@
+<%= link_to image_tag("pageback.png", :title => "Back to all countries"), countries_path, :class => "magnify" %>
+<h1>Other country rules: <%= @legislation.country.country %></h1>
+
+<div id="rubric">
+  The retirement age is <%= @legislation.retirement_men %> for men and <%= @legislation.retirement_women %> for women.
+  <br /><br />
+  <% if @legislation.sickness_accruals? %>
+     If employees haven't used their full sickness allowances in a year, the balance may be carried across to the following year
+     up to a maximum of <%= @legislation.max_sickness_accrual %> days.
+  <% else %>
+     At the beginning of each year, sickness allowances for the year are reset to zero.  No balance is carried over to future years.
+  <% end %>
+  <br /><br />
+  By law, new-hires may be required to serve a probation period of <%= @legislation.probation_days %> days 
+  before their employment is confirmed.
+</div>
+
+<div class="r-float under">
+  <%= link_to "Edit", edit_legislation_path(@legislation) %>
+</div>

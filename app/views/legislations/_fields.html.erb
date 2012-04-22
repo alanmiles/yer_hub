@@ -1,0 +1,34 @@
+
+
+<div class="field">
+  <%= f.label :retirement_men, "Male retirement age *" %>
+  <%= f.text_field :retirement_men, :size => 3 %>
+</div>
+
+<div class="field">
+  <%= f.label :retirement_women, "Female retirement age *" %>
+  <%= f.text_field :retirement_women, :size => 3 %>
+</div>
+
+<div class="field">
+   <%= f.label :sickness_accruals, "Check if sickness allowances can be accrued *" %>  
+   <%= f.check_box :sickness_accruals %>
+   <div class="subtext">
+      In some countries (e.g. Bahrain), any untaken paid sickness days can accrue up to a defined number of days (in
+      Bahrain the maximum accrual is 182 days).  If sickness may be accrued, check this box and enter the maximum
+      number of days below.)
+  </div>
+</div>
+ 
+<div class="field">
+  <%= f.label :max_sickness_accrual, "Maximum sickness days accrued *" %>
+  <%= f.text_field :max_sickness_accrual, :size => 5 %>
+  <div class="subtext">
+    If you've checked the box above, enter the maximum number of sickness accrual days here - otherwise, leave the value at 0
+  </div>
+</div>
+
+<div class="field">
+  <%= f.label :probation_days, "Number of probation days for new-hires *" %>
+  <%= f.text_field :probation_days, :size => 3 %>
+</div>

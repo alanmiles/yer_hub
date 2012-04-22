@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120421192409) do
+ActiveRecord::Schema.define(:version => 20120422153809) do
 
   create_table "abscats", :force => true do |t|
     t.string   "category"
@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(:version => 20120421192409) do
     t.integer  "salary_ceiling",   :default => 1000000
     t.boolean  "startend_prorate", :default => true
     t.integer  "startend_date",    :default => 15
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "legislations", :force => true do |t|
+    t.integer  "country_id"
+    t.integer  "retirement_men",       :default => 65
+    t.integer  "retirement_women",     :default => 60
+    t.boolean  "sickness_accruals",    :default => false
+    t.integer  "max_sickness_accrual", :default => 0
+    t.integer  "probation_days",       :default => 90
     t.datetime "created_at"
     t.datetime "updated_at"
   end

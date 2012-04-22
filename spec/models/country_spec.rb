@@ -26,6 +26,16 @@ describe Country do
   it "should create a new instance given valid attributes" do
     Country.create!(@attr)
   end
+  
+  it "should create a related insurance_rules table simultaneously" do
+    @country = Country.create!(@attr)
+    Insurancerule.count.should == 1
+  end
+  
+  it "should create a related legislation table simultaneously" do
+    @country = Country.create!(@attr)
+    Legislation.count.should == 1
+  end
 
   it "should require a country name" do
     no_name_country = Country.new(@attr.merge(:country => ""))
