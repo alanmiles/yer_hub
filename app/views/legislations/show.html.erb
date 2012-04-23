@@ -1,6 +1,12 @@
 <%= link_to image_tag("pageback.png", :title => "Back to all countries"), countries_path, :class => "magnify" %>
 <h1>Other country rules: <%= @legislation.country.country %></h1>
 
+<div class="r-float">
+  <%= link_to "Edit", edit_legislation_path(@legislation) %>
+</div>
+
+<h2 class="shallow">Legislation</h2>
+
 <div id="rubric">
   The retirement age is <%= @legislation.retirement_men %> for men and <%= @legislation.retirement_women %> for women.
   <br /><br />
@@ -16,5 +22,50 @@
 </div>
 
 <div class="r-float under">
-  <%= link_to "Edit", edit_legislation_path(@legislation) %>
+  <%= link_to "Add a levy", new_country_levy_path(@legislation.country_id) %>
+</div>
+<h2 class="under">Levies</h2>
+
+<div class="subtext">
+  <table>
+    <tr>
+      <th></th>
+      <th class="mainhead">LEVY NAME</th>
+      <th colspan = "2" class="mainhead">MONTHLY SALARY</th>
+      <th colspan = "2" class="mainhead">EMPLOYER CONTRIBUTION</th>
+      <th colspan = "2" class="mainhead">EMPLOYEE CONTRIBUTION</th>
+      <th></th>
+    </tr>  
+    <tr>
+      <th></th>
+      <th></th>
+      <th class="subhead">From</th>
+      <th class="subhead">To</th>
+      <th class="subhead">Nationals</th>
+      <th class="subhead">Expats</th>
+      <th class="subhead">Nationals</th>
+      <th class="subhead">Expats</th>
+      <th></th>
+    </tr>
+    <% @levies.each do |levy| %>
+    <tr>
+      <td class="centralize"><%= link_to image_tag("select.png"), edit_levy_path(levy), :title => "Edit" %></td> 
+      <td class="control centralize"><%= levy.name %></td>
+      <% if levy.low_salary == 0 && levy.high_salary == 1000000 %>
+        <td colspan = "2" class="control centralize">All employees</td>
+      <% else %>
+        <td class="control centralize"><%= levy.low_salary %></td>
+        <td class="control centralize"><%= levy.high_salary %></td>
+      <% end %>
+      <td class="control centralize"><%= levy.employer_nats %>%</td>
+      <td class="control centralize"><%= levy.employer_expats %>%</td>
+      <td class="control centralize"><%= levy.employee_nats %>%</td>
+      <td class="control centralize"><%= levy.employee_expats %>%</td>
+      <td class="centralize"><%= link_to image_tag("delete.png"), levy, :method => :delete, 
+                         :confirm => "Are you sure you want to delete this levy for '#{levy.country.country}'?",
+                         :title => "Delete selected levy for '#{levy.country.country}'" %>
+      </td>     
+    </tr>
+    <% end %>  
+  </table>
 </div>

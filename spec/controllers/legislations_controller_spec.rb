@@ -152,6 +152,60 @@ describe LegislationsController do
           response.should have_selector("a", :href => countries_path)
         end
         
+        describe "levies" do
+          
+          describe "for the country selected" do
+        
+            before(:each) do
+              @levy = Factory(:levy, :country_id => @country.id)
+              @levy2 = Factory(:levy, :country_id => @country.id, :name => "CCCC", :low_salary => 4000, 
+               	:high_salary => 6000, :employer_nats => 13, :employee_nats => 8 )
+              @levies = [@levy, @levy2]
+            end
+        
+            it "should have an element for each levy" do
+              get :show, :id => @legislation
+              @levies.each do |levy|
+                response.should have_selector("td", :content => levy.high_salary.to_s)
+              end
+            end
+      
+            it "should have a link to the 'edit' page for each levy" do
+              get :show, :id => @legislation
+              @levies.each do |levy|
+                response.should have_selector("a", :href => edit_levy_path(levy.id))
+              end        
+            end
+        
+            it "should have a link to the 'new' levy page" do
+              get :show, :id => @legislation
+              response.should have_selector("a", :href => new_country_levy_path(@country))
+            end       
+        
+          end	
+        
+          describe "where levies are not from the selected country" do
+        
+            before(:each) do
+              @nationality2 = Factory(:nationality, :nationality => "British")
+              @currency2 = Factory(:currency, :currency => "Pound Sterling", :abbreviation => "GBP")
+              @country2 = Factory(:country, :country => "United Kingdom", :currency_id => @currency2.id, :nationality_id => @nationality2.id) 
+          
+              @levy = Factory(:levy, :country_id => @country2)
+              @levy2 = Factory(:levy, :country_id => @country2.id, :name => "HHHH", :low_salary => 4000, 
+             	:high_salary => 6000, :employer_nats => 13, :employee_nats => 8 )
+              @levies = [@levy, @levy2]
+            end
+          
+            it "should have not have an element for each levy" do
+              get :show, :id => @legislation
+              @levies.each do |levy|
+                response.should_not have_selector("td", :content => levy.low_salary.to_s)
+              end
+            end
+          end 
+        end
+        
       end
       
       describe "GET 'edit'" do

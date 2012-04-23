@@ -14,8 +14,6 @@ class InsurancerulesController < ApplicationController
   def edit
     @insurancerule = Insurancerule.find(params[:id])
     @country = Country.find(@insurancerule.country_id)
-    #@country = Country.find(params[:id])
-    #@insurancerule = @country.insurancerule
     @title = "Edit insurance rule"
   end
   

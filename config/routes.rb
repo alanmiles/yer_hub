@@ -1,11 +1,5 @@
 YerHub::Application.routes.draw do
 
-  get "levies/new"
-
-  get "legislations/edit"
-
-  get "legislations/index"
-
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :currencies
@@ -17,6 +11,7 @@ YerHub::Application.routes.draw do
     resources :insurancerates, :only => [:new, :create, :edit, :update, :destroy], :shallow => true
     resources :gratuityrates, :except => :show, :shallow => true
     resources :sicknessallowances, :except => :show, :shallow => true
+    resources :levies, :only => [:new, :create, :edit, :update, :destroy], :shallow => true
   end
   resources :sectors
   resources :occupations

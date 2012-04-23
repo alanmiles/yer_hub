@@ -1,11 +1,11 @@
 <%= link_to image_tag("pageback.png", :title => "Legislation for country"), legislation_path(@legislation), :class => "magnify" %>
 
-<%= form_for([@country, @levy]) do |f| %>
+<%= form_for(@levy) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <h1>Levy for <%= @levy.country.country %></h1>
   <%= render 'fields', :f => f %>
   
   <div class="actions">
-    <%= f.submit "Create Levy", :class => "create round" %>
+    <%= f.submit "Update Levy", :class => "create round" %>
   </div>
 <% end %>

@@ -81,3 +81,14 @@ Factory.define :sicknessallowance do |sicknessallowance|
   sicknessallowance.sick_days_to	30
   sicknessallowance.deduction_rate	50
 end
+
+Factory.define :levy do |levy|
+  levy.association :country
+  levy.name 		"ABCD"
+  levy.low_salary 	0
+  levy.high_salary	4000
+  levy.employer_nats	11
+  levy.employer_expats	3
+  levy.employee_nats	6
+  levy.employee_expats	0
+end

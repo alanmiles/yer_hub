@@ -1,4 +1,8 @@
 <div class="field under">
+  <%= f.label :name, "Levy name *" %>
+  <%= f.text_field :name, :size => 15 %>
+</div>
+<div class="field">  
   Salary range * <br />
   <%= f.label :low_salary, "From " %>
   <%= f.text_field :low_salary, :size => 10 %>
@@ -9,7 +13,7 @@
   Lower and upper range of salary to which these rates apply.  If the range is unlimited, enter 0 and 1000000.
 </div> 
 <div class="field under">
-  Percentage of monthly salary for social insurance:-
+  Percentage of monthly salary to deduct:-
 </div>
 <div class="field">    
   <%= f.label :employer_nats, "Employer contribution for nationals *" %>

@@ -23,12 +23,11 @@ class Levy < ActiveRecord::Base
   
   validates	:country_id,		:presence 		=> true
   validates	:name,			:presence		=> true,
-  					:length			=> { :maximum => 15 }
+  					:length			=> { :maximum => 15 },
+  					:uniqueness		=> { :scope => :country_id }
   validates	:low_salary,		:presence 		=> true,
-  					:uniqueness		=> { :scope => :country_id }, 
   					:numericality		=> { :only_integer => true, :allow_zero => true }
   validates	:high_salary,		:presence 		=> true,
-  					:uniqueness		=> { :scope => :country_id },
   					:numericality		=> { :only_integer => true, :allow_zero => true }
   validates	:employer_nats,		:presence 		=> true,
   					:numericality		=> true,
