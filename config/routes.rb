@@ -1,5 +1,7 @@
 YerHub::Application.routes.draw do
 
+  get "levies/new"
+
   get "legislations/edit"
 
   get "legislations/index"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422153809) do
+ActiveRecord::Schema.define(:version => 20120423152311) do
 
   create_table "abscats", :force => true do |t|
     t.string   "category"
@@ -80,6 +80,19 @@ ActiveRecord::Schema.define(:version => 20120422153809) do
     t.boolean  "sickness_accruals",    :default => false
     t.integer  "max_sickness_accrual", :default => 0
     t.integer  "probation_days",       :default => 90
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "levies", :force => true do |t|
+    t.integer  "country_id"
+    t.string   "name"
+    t.integer  "low_salary"
+    t.integer  "high_salary"
+    t.decimal  "employer_nats",   :precision => 4, :scale => 2
+    t.decimal  "employer_expats", :precision => 4, :scale => 2
+    t.decimal  "employee_nats",   :precision => 4, :scale => 2
+    t.decimal  "employee_expats", :precision => 4, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
