@@ -1,16 +1,30 @@
 <div class="field">
-  <%= f.label :name %><br />
+  <%= f.label :name, "User name * " %><br />
   <%= f.text_field :name %>
 </div>
 <div class="field">
-  <%= f.label :email %><br />
+  <%= f.label :email, "Email * "  %><br />
   <%= f.text_field :email %>
 </div>
 <div class="field">
-  <%= f.label :password %><br />
+  <%= f.label :password, "Password * " %><br />
   <%= f.password_field :password %>
 </div>
 <div class="field">
-  <%= f.label :password_confirmation, "Confirmation" %><br />
+  <%= f.label :password_confirmation, "Re-enter password * " %><br />
   <%= f.password_field :password_confirmation %>
+</div>
+
+<div class="field">
+  <%= f.label :administrator, "Is your business already using HeaRt? * " %><br />
+  <%= f.radio_button :administrator, true %> Yes
+  <%= f.radio_button :administrator, false %> No
+</div>
+<div class="field">
+  <div class="subtext">
+    <%= f.label :pin, "If you've received an invitation to use your company's version of
+                    HeaRt, enter your secret PIN here " %>
+                   
+    <%= f.text_field :pin, :size => 6 %>
+  </div>
 </div>

@@ -10,12 +10,14 @@
 #  encrypted_password :string(255)
 #  salt               :string(255)
 #  admin              :boolean         default(FALSE)
+#  administrator      :boolean         default(FALSE)
+#  pin                :string(255)
 #
 
 class User < ActiveRecord::Base
 
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :administrator, :pin
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -27,10 +29,19 @@ class User < ActiveRecord::Base
   # Automatically create the virtual attribute 'password_confirmation'.
   validates :password, 	:presence     	=> true,
                        	:confirmation 	=> true,
-                       	:length       	=> { :within => 6..40 }
+                       	:length       	=> { :within => 6..40 }               	
 
+  validates :pin, 	:presence 	=> true,
+  			:length		=> { :maximum => 6 }, 
+  			:unless 	=> Proc.new {|user| user.administrator? }
+
+  validates :pin, 	:length		=> { :maximum => 0, :allow_blank => true },
+  			:if		=> Proc.new {|u| u.administrator? }
+			
   before_save :encrypt_password
 
+  
+  
   # Return true if the user's password matches the submitted password.
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)

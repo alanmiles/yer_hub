@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120423152311) do
+ActiveRecord::Schema.define(:version => 20120424124820) do
 
   create_table "abscats", :force => true do |t|
     t.string   "category"
@@ -143,6 +143,8 @@ ActiveRecord::Schema.define(:version => 20120423152311) do
     t.string   "encrypted_password"
     t.string   "salt"
     t.boolean  "admin",              :default => false
+    t.boolean  "administrator",      :default => false
+    t.string   "pin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

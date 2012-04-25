@@ -10,16 +10,20 @@
 #  encrypted_password :string(255)
 #  salt               :string(255)
 #  admin              :boolean         default(FALSE)
+#  administrator      :boolean         default(FALSE)
+#  pin                :string(255)
 #
 
 require 'spec_helper'
 
 describe User do
+
   before(:each) do
     @attr =   { :name => "Example User", 
     		:email => "user@example.com",
     		:password => "foobar",
-      		:password_confirmation => "foobar" }
+      		:password_confirmation => "foobar",
+      		:pin => "ABC123" }
   end
 
   it "should create a new instance given valid attributes" do
@@ -34,6 +38,16 @@ describe User do
   it "should require an email address" do
     no_email_user = User.new(@attr.merge(:email => ""))
     no_email_user.should_not be_valid
+  end
+  
+  it "should not permit a blank PIN" do
+    blank_pin_user = User.new(@attr.merge(:pin => ""))
+    blank_pin_user.should_not be_valid
+  end
+  
+  it "should not accept a long PIN" do
+    long_pin_user = User.new(@attr.merge(:pin => "AB1234D"))
+    long_pin_user.should_not be_valid
   end
   
   it "should reject names that are too long" do
@@ -72,6 +86,28 @@ describe User do
     user_with_duplicate_email.should_not be_valid
   end
   
+  describe "users registering a new company" do
+  
+    before(:each) do
+      @attr2 =   { :name => "Example User2", 
+    		:email => "user2@example.com",
+    		:password => "foobar",
+      		:password_confirmation => "foobar",
+      		:administrator => true, 
+      		:pin => nil }
+    end
+  
+    it "should create a new user without a pin" do
+      User.create!(@attr2)
+    end
+    
+    it "should not accept an entry with a PIN" do
+      blank_pin_user = User.new(@attr2.merge(:pin => "ABC123"))
+      blank_pin_user.should_not be_valid
+    end
+      
+  end
+  
   describe "password validations" do
 
     it "should require a password" do
@@ -95,6 +131,7 @@ describe User do
       hash = @attr.merge(:password => long, :password_confirmation => long)
       User.new(hash).should_not be_valid
     end
+
   end
   
   describe "password encryption" do
