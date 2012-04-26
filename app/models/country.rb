@@ -24,6 +24,7 @@ class Country < ActiveRecord::Base
   has_many :gratuityrates, :dependent => :destroy
   has_many :sicknessallowances, :dependent => :destroy
   has_many :levies, :dependent => :destroy
+  has_many :fixedlevies, :dependent => :destroy
   
   validates	:country,		:presence	=> true,
   					:length		=> { :maximum => 50 },

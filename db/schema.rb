@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120424124820) do
+ActiveRecord::Schema.define(:version => 20120426162027) do
 
   create_table "abscats", :force => true do |t|
     t.string   "category"
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(:version => 20120424124820) do
     t.decimal  "change_to_dollars", :precision => 8, :scale => 5
     t.boolean  "approved",                                        :default => false
     t.integer  "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "fixedlevies", :force => true do |t|
+    t.integer  "country_id"
+    t.string   "name"
+    t.integer  "low_salary"
+    t.integer  "high_salary"
+    t.decimal  "employer_nats",   :precision => 7, :scale => 3, :default => 0.0
+    t.decimal  "employer_expats", :precision => 7, :scale => 3, :default => 0.0
+    t.decimal  "employee_nats",   :precision => 7, :scale => 3, :default => 0.0
+    t.decimal  "employee_expats", :precision => 7, :scale => 3, :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

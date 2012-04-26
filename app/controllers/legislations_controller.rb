@@ -9,6 +9,7 @@ class LegislationsController < ApplicationController
     @legislation = Legislation.find(params[:id])
     @country = Country.find(@legislation.country_id)
     @levies = @country.levies.order("levies.name, levies.low_salary")
+    @fixedlevies = @country.fixedlevies.order("fixedlevies.name, fixedlevies.low_salary")
   end
 
   def edit

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe LeviesController do
+describe FixedleviesController do
 
   render_views
   
@@ -34,34 +34,34 @@ describe LeviesController do
 
       it "should not create a new insurance rate" do
         lambda do
-          post :create, :country_id => @country.id, :levy => @attr
-        end.should_not change(Levy, :count)
+          post :create, :country_id => @country.id, :fixedlevy => @attr
+        end.should_not change(Fixedlevy, :count)
       end
     
       it "should redirect to the home page" do
-        post :create, :country_id => @country.id, :levy => @attr
+        post :create, :country_id => @country.id, :fixedlevy => @attr
         response.should redirect_to root_path
       end
       
       it "should issue a warning message" do
-        post :create, :country_id => @country.id, :levy => @attr
+        post :create, :country_id => @country.id, :fixedlevy => @attr
         flash[:warning].should =~ /not authorized/i
       end
     end
     
     before(:each) do
-      @levy = Factory(:levy, :country_id => @country.id)
+      @fixedlevy = Factory(:fixedlevy, :country_id => @country.id)
     end
     
     describe "GET 'edit'" do
 
       it "should not be successful" do
-        get :edit, :id => @levy
+        get :edit, :id => @fixedlevy
         response.should_not be_success
       end
         
       it "should redirect to the login page" do
-        get :edit, :id => @levy
+        get :edit, :id => @fixedlevy
         response.should redirect_to signin_path
       end
     end
@@ -74,29 +74,29 @@ describe LeviesController do
                   :employee_expats => 1 }
       end
 
-      it "should not change the levy's attributes" do
-        put :update, :id => @levy, :levy => @attr
-        @levy.reload
-        @levy.high_salary.should_not  == @attr[:high_salary]
-        @levy.employee_expats.should_not == @attr[:employee_expats]
+      it "should not change the fixedlevy's attributes" do
+        put :update, :id => @fixedlevy, :fixedlevy => @attr
+        @fixedlevy.reload
+        @fixedlevy.high_salary.should_not  == @attr[:high_salary]
+        @fixedlevy.employee_expats.should_not == @attr[:employee_expats]
       end
 
       it "should redirect to the root path" do
-        put :update, :id => @levy, :levy => @attr
+        put :update, :id => @fixedlevy, :fixedlevy => @attr
         response.should redirect_to root_path
       end
     end
     
     describe "DELETE 'destroy'" do
       
-      it "should protect the levy" do
+      it "should protect the fixedlevy" do
         lambda do
-          delete :destroy, :id => @levy
-        end.should_not change(Levy, :count)
+          delete :destroy, :id => @fixedlevy
+        end.should_not change(Fixedlevy, :count)
       end
                    
       it "should redirect to the home page path" do
-        delete :destroy, :id => @levy
+        delete :destroy, :id => @fixedlevy
         response.should redirect_to root_path
       end
     end
@@ -133,30 +133,30 @@ describe LeviesController do
         end
         
         it "should redirect to the home page" do
-          post :create, :country_id => @country.id, :levy => @attr
+          post :create, :country_id => @country.id, :fixedlevy => @attr
           response.should redirect_to root_path
         end
       
         it "should issue a warning message" do
-          post :create, :country_id => @country.id, :levy => @attr
+          post :create, :country_id => @country.id, :fixedlevy => @attr
           flash[:warning].should =~ /only available to administrators/i
         end
       
       end
       
       before(:each) do
-        @levy = Factory(:levy, :country_id => @country.id)
+        @fixedlevy = Factory(:fixedlevy, :country_id => @country.id)
       end
       
       describe "GET 'edit'" do
 
         it "should not be successful" do
-          get :edit, :id => @levy
+          get :edit, :id => @fixedlevy
           response.should_not be_success
         end
         
         it "should redirect to the home page" do
-          get :edit, :id => @levy
+          get :edit, :id => @fixedlevy
           response.should redirect_to root_path
         end
       end
@@ -169,34 +169,34 @@ describe LeviesController do
                   :employee_expats => 1 }
         end
 
-        it "should not change the levy's attributes" do
-          put :update, :id => @levy, :levy => @attr
-          @levy.reload
-          @levy.high_salary.should_not  == @attr[:high_salary]
-          @levy.employee_expats.should_not == @attr[:employee_expats]
+        it "should not change the fixedlevy's attributes" do
+          put :update, :id => @fixedlevy, :fixedlevy => @attr
+          @fixedlevy.reload
+          @fixedlevy.high_salary.should_not  == @attr[:high_salary]
+          @fixedlevy.employee_expats.should_not == @attr[:employee_expats]
         end
 
         it "should redirect to the root path" do
-          put :update, :id => @levy, :levy => @attr
+          put :update, :id => @fixedlevy, :fixedlevy => @attr
           response.should redirect_to root_path
         end
       end
       
       describe "DELETE 'destroy'" do
       
-        it "should protect the levy" do
+        it "should protect the fixedlevy" do
           lambda do
-            delete :destroy, :id => @levy
-          end.should_not change(Levy, :count)
+            delete :destroy, :id => @fixedlevy
+          end.should_not change(Fixedlevy, :count)
         end
                    
         it "should redirect to the root path" do
-          delete :destroy, :id => @levy
+          delete :destroy, :id => @fixedlevy
           response.should redirect_to root_path
         end
         
         it "should have a warning message" do
-          delete :destroy, :id => @levy
+          delete :destroy, :id => @fixedlevy
           flash[:warning].should =~ /only available to administrators/i 
         end
       end
@@ -217,7 +217,7 @@ describe LeviesController do
     
         it "should have the right title" do
           get :new, :country_id => @country.id
-          response.should have_selector("title", :content => "New variable levy")
+          response.should have_selector("title", :content => "New fixed levy")
         end
       end
       
@@ -231,19 +231,19 @@ describe LeviesController do
                   :employee_expats => 0 }
           end
 
-          it "should not create a levy" do
+          it "should not create a fixedlevy" do
             lambda do
-              post :create, :country_id => @country.id, :levy => @attr
-            end.should_not change(Levy, :count)
+              post :create, :country_id => @country.id, :fixedlevy => @attr
+            end.should_not change(Fixedlevy, :count)
           end
 
           it "should have the right title" do
-            post :create, :country_id => @country.id, :levy => @attr
-            response.should have_selector("title", :content => "New variable levy")
+            post :create, :country_id => @country.id, :fixedlevy => @attr
+            response.should have_selector("title", :content => "New fixed levy")
           end
 
           it "should render the 'new' page" do
-            post :create, :country_id => @country.id, :levy => @attr
+            post :create, :country_id => @country.id, :fixedlevy => @attr
             response.should render_template('new')
           end
         end
@@ -257,69 +257,69 @@ describe LeviesController do
                   :employee_expats => 0 }
         end
 
-        it "should create a levy" do
+        it "should create a fixedlevy" do
           lambda do
-            post :create, :country_id => @country.id, :levy => @attr
-          end.should change(Levy, :count).by(1)
+            post :create, :country_id => @country.id, :fixedlevy => @attr
+          end.should change(Fixedlevy, :count).by(1)
         end
       
         it "should redirect to the legislation show page" do
-          post :create, :country_id => @country.id, :levy => @attr
+          post :create, :country_id => @country.id, :fixedlevy => @attr
           response.should redirect_to legislation_path(@country.legislation)
         end
       
         it "should have a success message" do
-          post :create, :country_id => @country.id, :levy => @attr
-          flash[:success].should =~ /added a new variable levy/i
+          post :create, :country_id => @country.id, :fixedlevy => @attr
+          flash[:success].should =~ /added a new fixed levy/i
         end    
       end    
     
       describe "GET 'edit'" do
 
         before(:each) do
-          @levy = Factory(:levy, :country_id => @country.id)
+          @fixedlevy = Factory(:fixedlevy, :country_id => @country.id)
         end
 
         it "should be successful" do
-          get :edit, :id => @levy
+          get :edit, :id => @fixedlevy
           response.should be_success
         end
 
         it "should have the right title" do
-          get :edit, :id => @levy
-          response.should have_selector("title", :content => "Edit variable levy")
+          get :edit, :id => @fixedlevy
+          response.should have_selector("title", :content => "Edit fixed levy")
         end
         
-        it "should permit changes to the levy's name" do
-          get :edit, :id => @levy
-          response.should have_selector("input", :name => "levy[name]")
+        it "should permit changes to the fixedlevy's name" do
+          get :edit, :id => @fixedlevy
+          response.should have_selector("input", :name => "fixedlevy[name]")
         end
 
-        it "should permit changes to the levy's low salary" do
-          get :edit, :id => @levy
-          response.should have_selector("input", :name => "levy[low_salary]")
+        it "should permit changes to the fixedlevy's low salary" do
+          get :edit, :id => @fixedlevy
+          response.should have_selector("input", :name => "fixedlevy[low_salary]")
         end
 
-        it "should permit changes to the levy's employer contribution for nationals" do
-          get :edit, :id => @levy
-          response.should have_selector("input", :name => "levy[employer_nats]")
+        it "should permit changes to the fixedlevy's employer contribution for nationals" do
+          get :edit, :id => @fixedlevy
+          response.should have_selector("input", :name => "fixedlevy[employer_nats]")
         end
         
-        it "should not permit changes to the levy's country" do
-          get :edit, :id => @levy
-          response.should_not have_selector("input", :name => "levy[country_id]")
+        it "should not permit changes to the fixedlevy's country" do
+          get :edit, :id => @fixedlevy
+          response.should_not have_selector("input", :name => "fixedlevy[country_id]")
         end
         
         it "should contain a 'Submit' button" do
-          get :edit, :id => @levy
-          response.should have_selector("input", :type => "submit", :value => "Update Levy")
+          get :edit, :id => @fixedlevy
+          response.should have_selector("input", :type => "submit", :value => "Update Fixed Levy")
         end        
       end
       
       describe "PUT 'update'" do
 
         before(:each) do
-          @levy = Factory(:levy, :country_id => @country.id)
+          @fixedlevy = Factory(:fixedlevy, :country_id => @country.id)
         end
 
         describe "failure" do
@@ -329,13 +329,13 @@ describe LeviesController do
           end
 
           it "should render the 'edit' page" do
-            put :update, :id => @levy, :levy => @attr
+            put :update, :id => @fixedlevy, :fixedlevy => @attr
             response.should render_template('edit')
           end
 
           it "should have the right title" do
-            put :update, :id => @levy, :levy => @attr
-            response.should have_selector("title", :content => "Edit variable levy")
+            put :update, :id => @fixedlevy, :fixedlevy => @attr
+            response.should have_selector("title", :content => "Edit fixed levy")
           end
         end
 
@@ -345,20 +345,20 @@ describe LeviesController do
             @attr = { :low_salary => 4000, :high_salary => 8000 }   
           end
 
-          it "should change the levy's attributes" do
-            put :update, :id => @levy, :levy => @attr
-            @levy.reload
-            @levy.low_salary.should  == @attr[:low_salary]
-            @levy.high_salary.should == @attr[:high_salary]
+          it "should change the fixedlevy's attributes" do
+            put :update, :id => @fixedlevy, :fixedlevy => @attr
+            @fixedlevy.reload
+            @fixedlevy.low_salary.should  == @attr[:low_salary]
+            @fixedlevy.high_salary.should == @attr[:high_salary]
           end
 
           it "should redirect to the legislation show page" do
-            put :update, :id => @levy, :levy => @attr
+            put :update, :id => @fixedlevy, :fixedlevy => @attr
             response.should redirect_to legislation_path(@country.legislation)
           end
 
           it "should have a flash message" do
-            put :update, :id => @levy, :levy => @attr
+            put :update, :id => @fixedlevy, :fixedlevy => @attr
             flash[:success].should =~ /updated/
           end
         end
@@ -367,22 +367,22 @@ describe LeviesController do
       describe "DELETE 'destroy'" do
       
         before(:each) do
-          @levy = Factory(:levy, :country_id => @country.id)
+          @fixedlevy = Factory(:fixedlevy, :country_id => @country.id)
         end
         
-        it "should destroy the levy" do
+        it "should destroy the fixedlevy" do
           lambda do
-            delete :destroy, :id => @levy
-          end.should change(Levy, :count).by(-1)
+            delete :destroy, :id => @fixedlevy
+          end.should change(Fixedlevy, :count).by(-1)
         end
                    
         it "should confirm the deletion" do
-          delete :destroy, :id => @levy
+          delete :destroy, :id => @fixedlevy
           flash[:success].should =~ /successfully removed/i
         end
           
         it "should redirect to the country's legislation list" do
-          delete :destroy, :id => @levy
+          delete :destroy, :id => @fixedlevy
           response.should redirect_to legislation_path(@country.legislation)
         end      
       end

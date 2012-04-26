@@ -12,6 +12,7 @@ YerHub::Application.routes.draw do
     resources :gratuityrates, :except => :show, :shallow => true
     resources :sicknessallowances, :except => :show, :shallow => true
     resources :levies, :only => [:new, :create, :edit, :update, :destroy], :shallow => true
+    resources :fixedlevies, :only => [:new, :create, :edit, :update, :destroy], :shallow => true
   end
   resources :sectors
   resources :occupations

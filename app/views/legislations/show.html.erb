@@ -22,9 +22,9 @@
 </div>
 
 <div class="r-float under">
-  <%= link_to "Add a levy", new_country_levy_path(@legislation.country_id) %>
+  <%= link_to "Add a variable levy", new_country_levy_path(@legislation.country_id) %>
 </div>
-<h2 class="under">Levies</h2>
+<h2 class="under">Variable levies</h2>
 
 <div class="subtext">
   <table>
@@ -64,6 +64,55 @@
       <td class="centralize"><%= link_to image_tag("delete.png"), levy, :method => :delete, 
                          :confirm => "Are you sure you want to delete this levy for '#{levy.country.country}'?",
                          :title => "Delete selected levy for '#{levy.country.country}'" %>
+      </td>     
+    </tr>
+    <% end %>  
+  </table>
+</div>
+
+<div class="r-float under">
+  <%= link_to "Add a fixed levy", new_country_fixedlevy_path(@legislation.country_id) %>
+</div>
+<h2 class="under">Fixed levies</h2>
+
+<div class="subtext">
+  <table>
+    <tr>
+      <th></th>
+      <th class="mainhead">LEVY NAME</th>
+      <th colspan = "2" class="mainhead">MONTHLY SALARY</th>
+      <th colspan = "2" class="mainhead">EMPLOYER CONTRIBUTION</th>
+      <th colspan = "2" class="mainhead">EMPLOYEE CONTRIBUTION</th>
+      <th></th>
+    </tr>  
+    <tr>
+      <th></th>
+      <th></th>
+      <th class="subhead">From</th>
+      <th class="subhead">To</th>
+      <th class="subhead">Nationals</th>
+      <th class="subhead">Expats</th>
+      <th class="subhead">Nationals</th>
+      <th class="subhead">Expats</th>
+      <th></th>
+    </tr>
+    <% @fixedlevies.each do |fixedlevy| %>
+    <tr>
+      <td class="centralize"><%= link_to image_tag("select.png"), edit_fixedlevy_path(fixedlevy), :title => "Edit" %></td> 
+      <td class="control centralize"><%= fixedlevy.name %></td>
+      <% if fixedlevy.low_salary == 0 && fixedlevy.high_salary == 1000000 %>
+        <td colspan = "2" class="control centralize">All employees</td>
+      <% else %>
+        <td class="control centralize"><%= fixedlevy.low_salary %></td>
+        <td class="control centralize"><%= fixedlevy.high_salary %></td>
+      <% end %>
+      <td class="control centralize"><%= local_currency %> <%= fixedlevy.employer_nats %></td>
+      <td class="control centralize"><%= local_currency %> <%= fixedlevy.employer_expats %></td>
+      <td class="control centralize"><%= local_currency %> <%= fixedlevy.employee_nats %></td>
+      <td class="control centralize"><%= local_currency %> <%= fixedlevy.employee_expats %></td>
+      <td class="centralize"><%= link_to image_tag("delete.png"), fixedlevy, :method => :delete, 
+                         :confirm => "Are you sure you want to delete this levy for '#{fixedlevy.country.country}'?",
+                         :title => "Delete selected levy for '#{fixedlevy.country.country}'" %>
       </td>     
     </tr>
     <% end %>  

@@ -6,7 +6,7 @@ class LeviesController < ApplicationController
   
   def new
     @country = Country.find(params[:country_id])
-    @title = "New levy"
+    @title = "New variable levy"
     @levy = @country.levies.new
     @legislation = @country.legislation
   end
@@ -16,17 +16,17 @@ class LeviesController < ApplicationController
     @legislation = @country.legislation
     @levy = @country.levies.new(params[:levy])
     if @levy.save
-      flash[:success] = "You have successfully added a new levy"
+      flash[:success] = "You have successfully added a new variable levy"
       redirect_to legislation_path(@legislation)
     else
-      @title = "New levy"
-      flash[:warning] = "The levy was not added.  Please try again, making sure all required fields are filled."
+      @title = "New variable levy"
+      flash[:warning] = "The variable levy was not added.  Please try again, making sure all required fields are filled."
       render 'new'
     end  
   end
 
   def edit
-    @title = "Edit levy"
+    @title = "Edit variable levy"
     @levy = Levy.find(params[:id])
     @country = Country.find(@levy.country_id)
     @legislation = @country.legislation
@@ -37,10 +37,10 @@ class LeviesController < ApplicationController
     @country = Country.find(@levy.country_id)
     @legislation = @country.legislation
     if @levy.update_attributes(params[:levy])
-      flash[:success] = "Levy updated."
+      flash[:success] = "Variable levy updated."
       redirect_to legislation_path(@legislation)
     else
-      @title = "Edit levy"
+      @title = "Edit variable levy"
       render 'edit'
     end
   end
@@ -50,7 +50,7 @@ class LeviesController < ApplicationController
     @country = Country.find(@levy.country_id)
     @legislation = @country.legislation
     @levy.destroy
-    flash[:success] = "A levy has been successfully removed from the list."
+    flash[:success] = "A variable levy has been successfully removed from the list."
     redirect_to legislation_path(@legislation)
   end
 

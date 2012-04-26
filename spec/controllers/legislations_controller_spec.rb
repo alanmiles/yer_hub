@@ -152,7 +152,7 @@ describe LegislationsController do
           response.should have_selector("a", :href => countries_path)
         end
         
-        describe "levies" do
+        describe "fixed levies" do
           
           describe "for the country selected" do
         
@@ -206,6 +206,59 @@ describe LegislationsController do
           end 
         end
         
+        describe "variable levies" do
+          
+          describe "for the country selected" do
+        
+            before(:each) do
+              @fixedlevy = Factory(:fixedlevy, :country_id => @country.id)
+              @fixedlevy2 = Factory(:fixedlevy, :country_id => @country.id, :name => "CCCC", :low_salary => 4000, 
+               	:high_salary => 6000, :employer_nats => 13, :employee_nats => 8 )
+              @fixedlevies = [@fixedlevy, @fixedlevy2]
+            end
+        
+            it "should have an element for each fixed levy" do
+              get :show, :id => @legislation
+              @fixedlevies.each do |fixedlevy|
+                response.should have_selector("td", :content => fixedlevy.high_salary.to_s)
+              end
+            end
+      
+            it "should have a link to the 'edit' page for each fixed levy" do
+              get :show, :id => @legislation
+              @fixedlevies.each do |fixedlevy|
+                response.should have_selector("a", :href => edit_fixedlevy_path(fixedlevy.id))
+              end        
+            end
+        
+            it "should have a link to the 'new' fixed levy page" do
+              get :show, :id => @legislation
+              response.should have_selector("a", :href => new_country_fixedlevy_path(@country))
+            end       
+        
+          end	
+        
+          describe "where fixed levies are not from the selected country" do
+        
+            before(:each) do
+              @nationality2 = Factory(:nationality, :nationality => "British")
+              @currency2 = Factory(:currency, :currency => "Pound Sterling", :abbreviation => "GBP")
+              @country2 = Factory(:country, :country => "United Kingdom", :currency_id => @currency2.id, :nationality_id => @nationality2.id) 
+          
+              @fixedlevy = Factory(:fixedlevy, :country_id => @country2)
+              @fixedlevy2 = Factory(:fixedlevy, :country_id => @country2.id, :name => "HHHH", :low_salary => 4000, 
+             	:high_salary => 6000, :employer_nats => 13, :employee_nats => 8 )
+              @fixedlevies = [@fixedlevy, @fixedlevy2]
+            end
+          
+            it "should have not have an element for each fixed levy" do
+              get :show, :id => @legislation
+              @fixedlevies.each do |fixedlevy|
+                response.should_not have_selector("td", :content => fixedlevy.low_salary.to_s)
+              end
+            end
+          end 
+        end
       end
       
       describe "GET 'edit'" do

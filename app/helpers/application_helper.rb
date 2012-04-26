@@ -42,4 +42,7 @@ module ApplicationHelper
     end
   end
   
+  def local_currency
+    @country.currency.abbreviation
+  end
 end

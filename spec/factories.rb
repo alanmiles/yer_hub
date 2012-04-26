@@ -93,3 +93,14 @@ Factory.define :levy do |levy|
   levy.employee_nats	6
   levy.employee_expats	0
 end
+
+Factory.define :fixedlevy do |fixedlevy|
+  fixedlevy.association :country
+  fixedlevy.name 		"ABCD"
+  fixedlevy.low_salary 	 	0
+  fixedlevy.high_salary		100000
+  fixedlevy.employer_nats	10
+  fixedlevy.employer_expats	1.500
+  fixedlevy.employee_nats	4.500
+  fixedlevy.employee_expats	0
+end
