@@ -11,13 +11,66 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120426162027) do
+ActiveRecord::Schema.define(:version => 20120427164444) do
 
   create_table "abscats", :force => true do |t|
     t.string   "category"
     t.string   "abbreviation"
     t.boolean  "approved",     :default => false
     t.integer  "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bizabsencedefs", :force => true do |t|
+    t.integer  "business_id"
+    t.string   "category"
+    t.string   "abbreviation"
+    t.string   "description"
+    t.integer  "max_per_year"
+    t.integer  "salary_deduction", :default => 0
+    t.boolean  "sickness",         :default => false
+    t.boolean  "push",             :default => false
+    t.boolean  "inactive",         :default => false
+    t.integer  "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bizparameters", :force => true do |t|
+    t.integer  "business_id"
+    t.decimal  "daily_salary_rate",    :precision => 4, :scale => 2, :default => 30.0
+    t.decimal  "hourly_salary_rate",   :precision => 5, :scale => 2, :default => 176.0
+    t.decimal  "ot_multiplier_1",      :precision => 3, :scale => 2, :default => 1.25
+    t.decimal  "ot_multiplier_2",      :precision => 3, :scale => 2, :default => 1.5
+    t.decimal  "ot_multiplier_3",      :precision => 3, :scale => 2, :default => 2.0
+    t.integer  "standard_weekend_1",                                 :default => 6
+    t.integer  "standard_weekend_2",                                 :default => 7
+    t.boolean  "vacation_calculation",                               :default => false
+    t.integer  "payroll_close",                                      :default => 15
+    t.boolean  "push_changes",                                       :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "businesses", :force => true do |t|
+    t.integer  "enterprise_id"
+    t.string   "business_name"
+    t.string   "short_name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "address_3"
+    t.string   "town"
+    t.string   "district"
+    t.string   "zipcode"
+    t.integer  "country_id"
+    t.string   "home_airport"
+    t.integer  "sector_id"
+    t.text     "mission"
+    t.text     "values"
+    t.boolean  "share_mission", :default => false
+    t.integer  "setup_step",    :default => 1
+    t.boolean  "inactive",      :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,6 +90,68 @@ ActiveRecord::Schema.define(:version => 20120426162027) do
     t.decimal  "change_to_dollars", :precision => 8, :scale => 5
     t.boolean  "approved",                                        :default => false
     t.integer  "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "employees", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "enterprise_id"
+    t.boolean  "officer",       :default => false
+    t.integer  "staff_id"
+    t.boolean  "left",          :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "entabsencedefs", :force => true do |t|
+    t.integer  "enterprise_id"
+    t.string   "category"
+    t.string   "abbreviation"
+    t.string   "description"
+    t.integer  "max_per_year"
+    t.integer  "salary_deduction", :default => 0
+    t.boolean  "sickness",         :default => false
+    t.boolean  "push",             :default => false
+    t.boolean  "inactive",         :default => false
+    t.integer  "updated_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enterpriseparameters", :force => true do |t|
+    t.integer  "enterprise_id"
+    t.decimal  "daily_salary_rate",    :precision => 4, :scale => 2, :default => 30.0
+    t.decimal  "hourly_salary_rate",   :precision => 5, :scale => 2, :default => 176.0
+    t.decimal  "ot_multiplier_1",      :precision => 3, :scale => 2, :default => 1.25
+    t.decimal  "ot_multiplier_2",      :precision => 3, :scale => 2, :default => 1.25
+    t.decimal  "ot_multiplier_3",      :precision => 3, :scale => 2, :default => 1.25
+    t.integer  "standard_weekend_1",                                 :default => 6
+    t.integer  "standard_weekend_2",                                 :default => 7
+    t.boolean  "vacation_calculation",                               :default => false
+    t.integer  "payroll_close",                                      :default => 15
+    t.boolean  "push_changes",                                       :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "enterprises", :force => true do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "address_3"
+    t.string   "town"
+    t.string   "district"
+    t.string   "zipcode"
+    t.integer  "country_id"
+    t.string   "home_airport"
+    t.string   "sector_id"
+    t.text     "mission"
+    t.text     "values"
+    t.boolean  "terms_accepted", :default => false
+    t.integer  "setup_step",     :default => 1
+    t.boolean  "inactive",       :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

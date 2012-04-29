@@ -104,3 +104,12 @@ Factory.define :fixedlevy do |fixedlevy|
   fixedlevy.employee_nats	4.500
   fixedlevy.employee_expats	0
 end
+
+Factory.define :enterprise do |enterprise|
+  enterprise.name		"The New Company"
+  enterprise.short_name		"NewCo"
+  enterprise.association :country
+  enterprise.association :sector
+  enterprise.terms_accepted	true
+end
+  

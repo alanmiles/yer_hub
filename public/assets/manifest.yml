@@ -9,7 +9,7 @@ empty.png: empty-7c0bfc02cd7016bac6bfe5eb0641a57c.png
 exit.png: exit-a232b993d20322c36edeaca78c2964bd.png
 expand.png: expand-7542060dcf5228567e8ae6af3ee566d3.png
 false.png: false-a70abfa8c2e91d818e73b52ba6f94b01.png
-guidance.png: guidance-ade25987572ac89266a8fe9096d8112e.png
+guidance.png: guidance-5d2a9011314b73f530ce427b9797c62a.png
 hide.png: hide-f80328a49d7206160086b544227c7abc.png
 home.png: home-e7da7f989f2ad2f5a5a67f8417c84dd2.png
 hygwit.eps: hygwit-f78988ec2ccceee174ab2adbd1eb06c2.eps
@@ -28,12 +28,15 @@ true.png: true-324bd370302c3471cec915c1fea28c09.png
 user.png: user-fefd9ffe8b62ceb3b3bbbc75b4142de4.png
 warning.png: warning-f4d4b844d23db06136150713fa98493a.png
 abscats.js: abscats-ffb0539c1577faf6d298323414833299.js
-application.js: application-7159a763ebcd995102e19e35582814b0.js
+application.js: application-dfb07d9d37c6957d6b3243719b9568fc.js
 countries.js: countries-ffb0539c1577faf6d298323414833299.js
 currencies.js: currencies-ffb0539c1577faf6d298323414833299.js
+fixedlevies.js: fixedlevies-ffb0539c1577faf6d298323414833299.js
 gratuityrates.js: gratuityrates-ffb0539c1577faf6d298323414833299.js
 insurancerates.js: insurancerates-ffb0539c1577faf6d298323414833299.js
 insurancerules.js: insurancerules-ffb0539c1577faf6d298323414833299.js
+legislations.js: legislations-ffb0539c1577faf6d298323414833299.js
+levies.js: levies-ffb0539c1577faf6d298323414833299.js
 nationalities.js: nationalities-ffb0539c1577faf6d298323414833299.js
 notes.js: notes-ffb0539c1577faf6d298323414833299.js
 occupations.js: occupations-ffb0539c1577faf6d298323414833299.js

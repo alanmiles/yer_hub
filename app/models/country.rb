@@ -25,6 +25,9 @@ class Country < ActiveRecord::Base
   has_many :sicknessallowances, :dependent => :destroy
   has_many :levies, :dependent => :destroy
   has_many :fixedlevies, :dependent => :destroy
+  has_many :businesses
+  has_many :enterprises
+  
   
   validates	:country,		:presence	=> true,
   					:length		=> { :maximum => 50 },

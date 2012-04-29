@@ -3,7 +3,22 @@
 <%= form_for(@user) do |f| %>
   
   <%= render 'shared/error_messages', :object => f.object %>
-  <%= render 'fields', :f => f %>
+  <div class="field">
+    <%= f.label :name, "User name * " %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email, "Email * "  %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "Password * " %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Re-enter password * " %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
   
   <div class="actions">
     <%= f.submit "Update", :class => "create round" %>

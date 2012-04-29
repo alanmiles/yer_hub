@@ -12,6 +12,9 @@
 
 class Sector < ActiveRecord::Base
 
+  has_many :businesses
+  has_many :enterprises
+  
   attr_accessible :sector, :approved, :created_by
   
   validates :sector,		:presence 	=> true,
