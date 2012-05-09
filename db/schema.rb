@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20120427164444) do
   create_table "enterprises", :force => true do |t|
     t.string   "name"
     t.string   "short_name"
+    t.integer  "company_registration"
     t.string   "address_1"
     t.string   "address_2"
     t.string   "address_3"
@@ -149,9 +150,10 @@ ActiveRecord::Schema.define(:version => 20120427164444) do
     t.string   "sector_id"
     t.text     "mission"
     t.text     "values"
-    t.boolean  "terms_accepted", :default => false
-    t.integer  "setup_step",     :default => 1
-    t.boolean  "inactive",       :default => false
+    t.boolean  "terms_accepted",       :default => false
+    t.integer  "setup_step",           :default => 1
+    t.boolean  "inactive",             :default => false
+    t.integer  "created_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

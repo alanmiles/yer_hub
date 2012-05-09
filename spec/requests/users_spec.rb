@@ -23,7 +23,7 @@ describe "Users" do
  
     describe "success" do
 
-      it "should make a new user" do
+      it "should make a new administrator user" do
         lambda do
           visit signup_path
           fill_in "User name",         :with => "Example User"
@@ -31,6 +31,22 @@ describe "Users" do
           fill_in "Password",     :with => "foobar"
           fill_in "Re-enter password", :with => "foobar"
           choose 'user_administrator_true'
+          click_button
+          response.should have_selector("div.flash.success",
+                                        :content => "business details")
+          response.should render_template('enterprises/new')
+        end.should change(User, :count).by(1)
+      end
+      
+      it "should make a new employee user" do
+        lambda do
+          visit signup_path
+          fill_in "User name",         :with => "Example User"
+          fill_in "Email",        :with => "user@example.com"
+          fill_in "Password",     :with => "foobar"
+          fill_in "Re-enter password", :with => "foobar"
+          choose 'user_administrator_false'
+          fill_in "user_pin",	  :with => "ABC123"
           click_button
           response.should have_selector("div.flash.success",
                                         :content => "Welcome")

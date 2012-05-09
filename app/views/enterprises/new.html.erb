@@ -1,0 +1,12 @@
+<div id="rubric">
+  Fill in this form - use the page-notes to help you - so that your business can start using HeaRt.  If
+  you made a mistake and your business is already a user, <%= link_to "click here", "#" %>.
+</div>
+<%= form_for(@enterprise) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  
+  <%= render 'fields', :f => f %>
+  <div class="actions">
+    <%= f.submit :class => "create round" %>
+  </div>
+<% end %>

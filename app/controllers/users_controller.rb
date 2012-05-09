@@ -23,8 +23,13 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to HeaRt!"
-      redirect_to @user
+      if @user.administrator?
+        flash[:success] = "Now set up your business details"
+        redirect_to new_enterprise_path
+      else
+        flash[:success] = "Welcome to HeaRt!"
+        redirect_to @user
+      end
     else
       @user.password = nil
       @user.password_confirmation = nil

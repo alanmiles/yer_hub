@@ -1,0 +1,52 @@
+<div class="field">
+  <%= f.label :name, "Enterprise name * " %><br />
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :short_name, "Short name * " %><br />
+  <%= f.text_field :short_name, :size => 15 %>
+</div>
+<div class="field">
+  <%= f.label :company_registration %><br />
+  <%= f.text_field :company_registration, :size => 15 %>
+</div>
+<div class="field">
+  <%= f.label :address_1, "Address" %><br />
+  <%= f.text_field :address_1 %><br />
+  <%= f.text_field :address_2 %><br />
+  <%= f.text_field :address_3 %><br />
+</div>
+<div class="field">
+  <%= f.label :town, "Town / city " %><br />
+  <%= f.text_field :town %><br />
+</div>
+<div class="field">
+  <%= f.label :district, "District / state" %><br />
+  <%= f.text_field :district %><br />
+</div>
+<div class="field">  
+  <%= f.label :country_id, "Country * " %><br />
+  <%= collection_select(:enterprise, :country_id, @countries, :id, 
+                          :country, :prompt => true) %><br />
+</div>
+<div class="field">  
+  <%= f.label :zipcode %>
+  <%= f.text_field :zipcode, :size => 10 %>
+</div>
+<div class="field">
+  <%= f.label :home_airport %><br />
+  <%= f.text_field :home_airport %>
+</div>
+<div class="field">
+  <%= f.label :sector_id, "Business sector * " %><br />
+  <%= collection_select(:enterprise, :sector_id, @sectors, :id, 
+                          :sector, :prompt => true) %>
+</div>
+<div class="field">
+  <%= f.label :terms_accepted, "Have you read / accepted our terms? * " %>
+  <%= f.check_box :terms_accepted %>
+  <div class="subtext">
+    <%= link_to "Read them here", "#" %>
+  </div>
+</div>
+<%= f.hidden_field :created_by %>

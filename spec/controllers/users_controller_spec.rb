@@ -130,28 +130,37 @@ describe UsersController do
     describe "success" do
 
       before(:each) do
-        @attr = { :name => "New User", :email => "user@example.com",
+        @attr_admin = { :name => "New User", :email => "user@example.com",
                   :password => "foobar", :password_confirmation => "foobar", :administrator => true }
+        @attr_non_admin = { :name => "New User", :email => "user@example.com",
+                  :password => "foobar", :password_confirmation => "foobar", :administrator => false, :pin => "ABC123" }         
+        
       end
 
       it "should create a user" do
         lambda do
-          post :create, :user => @attr
+          post :create, :user => @attr_admin
         end.should change(User, :count).by(1)
       end
 
       it "should sign the user in" do
-        post :create, :user => @attr
+        post :create, :user => @attr_admin
         controller.should be_signed_in
       end
       
+      it "should redirect to the enterprise set-up page if business is not a current user" do
+        post :create, :user => @attr_admin
+        response.should redirect_to new_enterprise_path
+      
+      end
+      
       it "should redirect to the user show page" do
-        post :create, :user => @attr
+        post :create, :user => @attr_non_admin
         response.should redirect_to(user_path(assigns(:user)))
       end
       
       it "should have a welcome message" do
-        post :create, :user => @attr
+        post :create, :user => @attr_non_admin
         flash[:success].should =~ /welcome to HeaRt/i
       end    
     end

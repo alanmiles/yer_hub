@@ -111,5 +111,6 @@ Factory.define :enterprise do |enterprise|
   enterprise.association :country
   enterprise.association :sector
   enterprise.terms_accepted	true
+  enterprise.created_by		1
 end
   

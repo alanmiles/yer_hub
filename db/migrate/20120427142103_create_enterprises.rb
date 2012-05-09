@@ -3,6 +3,7 @@ class CreateEnterprises < ActiveRecord::Migration
     create_table :enterprises do |t|
       t.string :name
       t.string :short_name
+      t.integer :company_registration
       t.string :address_1
       t.string :address_2
       t.string :address_3
@@ -17,6 +18,7 @@ class CreateEnterprises < ActiveRecord::Migration
       t.boolean :terms_accepted, :default => false
       t.integer :setup_step, :default => 1
       t.boolean :inactive, :default => false
+      t.integer :created_by
 
       t.timestamps
     end

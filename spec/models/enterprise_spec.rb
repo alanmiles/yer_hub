@@ -2,25 +2,27 @@
 #
 # Table name: enterprises
 #
-#  id             :integer         not null, primary key
-#  name           :string(255)
-#  short_name     :string(255)
-#  address_1      :string(255)
-#  address_2      :string(255)
-#  address_3      :string(255)
-#  town           :string(255)
-#  district       :string(255)
-#  zipcode        :string(255)
-#  country_id     :integer
-#  home_airport   :string(255)
-#  sector_id      :string(255)
-#  mission        :text
-#  values         :text
-#  terms_accepted :boolean         default(FALSE)
-#  setup_step     :integer         default(1)
-#  inactive       :boolean         default(FALSE)
-#  created_at     :datetime
-#  updated_at     :datetime
+#  id                   :integer         not null, primary key
+#  name                 :string(255)
+#  short_name           :string(255)
+#  company_registration :integer
+#  address_1            :string(255)
+#  address_2            :string(255)
+#  address_3            :string(255)
+#  town                 :string(255)
+#  district             :string(255)
+#  zipcode              :string(255)
+#  country_id           :integer
+#  home_airport         :string(255)
+#  sector_id            :string(255)
+#  mission              :text
+#  values               :text
+#  terms_accepted       :boolean         default(FALSE)
+#  setup_step           :integer         default(1)
+#  inactive             :boolean         default(FALSE)
+#  created_by           :integer
+#  created_at           :datetime
+#  updated_at           :datetime
 #
 
 require 'spec_helper'
@@ -35,7 +37,8 @@ describe Enterprise do
     @nationality = Factory(:nationality)
     @country = Factory(:country, :nationality_id => @nationality.id, :currency_id => @currency.id)
     @abscat = Factory(:abscat, :approved => true)
-    @attr =   { :name => "Business Company Limited", :short_name => "BizCo", :country_id => @country.id, :sector_id => @sector.id, :terms_accepted => true } 
+    @attr =   { :name => "Business Company Limited", :short_name => "BizCo", :country_id => @country.id, 
+    		:sector_id => @sector.id, :terms_accepted => true, :created_by => @user.id } 
   
   end
 
@@ -67,6 +70,22 @@ describe Enterprise do
     @enterprise = Enterprise.create(@attr)
     Bizabsencedef.count.should_not == 0
   end
+  
+  it "should create a related record in the Employee table" do
+    @enterprise = Enterprise.create(@attr)
+    Employee.count.should_not == 0
+  end
+  
+  it "should make the employee an officer in the employee table" do
+    @enterprise = Enterprise.create(@attr)
+    @employee = Employee.last
+    @found_user = @employee.user_id
+    @found_user.should == @user.id
+    @found_enterprise = @employee.enterprise_id
+    @found_enterprise.should == @enterprise.id
+    @employee.officer.should == true
+    @employee.staff_id.should == 1    
+  end
  
   it "should require a name" do
     no_name_enterprise = Enterprise.new(@attr.merge(:name => ""))
@@ -90,6 +109,16 @@ describe Enterprise do
     long_shortname_enterprise.should_not be_valid
   end
   
+  it "should have an integer for company_registration" do
+    not_integer_registration = Enterprise.new(@attr.merge(:company_registration => "ABC"))
+    not_integer_registration.should_not be_valid
+  end
+  
+  it "should allow a blank company registration" do
+    blank_registration = Enterprise.new(@attr.merge(:company_registration => nil))
+    blank_registration.should be_valid
+  end
+  
   it "should require a country_id" do
     no_country_enterprise = Enterprise.new(@attr.merge(:country_id => nil))
     no_country_enterprise.should_not be_valid
@@ -104,6 +133,16 @@ describe Enterprise do
     @airport_name = "a" * 31
     long_airport_enterprise = Enterprise.new(@attr.merge(:home_airport => @airport_name))
     long_airport_enterprise.should_not be_valid
+  end
+  
+  it "should not accept a blank 'created_by' field" do
+    no_creator_enterprise = Enterprise.new(@attr.merge(:created_by => nil))
+    no_creator_enterprise.should_not be_valid
+  end
+  
+  it "should not accept an alphabetical 'created_by' field" do
+    wrong_creator_enterprise = Enterprise.new(@attr.merge(:created_by => "alan"))
+    wrong_creator_enterprise.should_not be_valid
   end
  
   describe "duplication rules" do
